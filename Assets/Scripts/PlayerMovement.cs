@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //liike eteenpäin
+        //liike eteenpï¿½in
         Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         //liike sivuttain
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
