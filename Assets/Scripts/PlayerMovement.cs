@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //hahmon nopeus
-    public float speed = 5;
+    [SerializeField] float speed = 5;
 
     //hahmon objekti
     public Rigidbody rb;
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //liike eteenp�in
+        //liike eteenpain
         Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         //liike sivuttain
         Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
