@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //hahmon nopeus
-    [SerializeField] float speed = 5;
 
     //hahmon objekti
     public Rigidbody rb;
@@ -15,12 +13,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //liike eteenpain
-        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         //liike sivuttain
-        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
+        Vector3 horizontalMove = transform.right * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier;
         //hahmon objektin liikutus
-        rb.MovePosition(rb.position + forwardMove + horizontalMove);
+        rb.MovePosition(rb.position + horizontalMove);
 
     }
 
