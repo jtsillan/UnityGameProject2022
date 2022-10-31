@@ -8,18 +8,28 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Tile2;
     public GameObject Tile3;
     public GameObject StartTile;
+    public GameObject[] Tiles;
+    GameObject LastTile;
 
     private float Index = 0;
 
+    /*
     private void Start()
     {
-
+        for (int i =0; i < 10; i++)
+        {
+            GameObject TempTile1 = Instantiate(Tiles[0]);
+            TempTile1.transform.position = new Vector3(0, 0 - i * 2.26f, 0 - i * 10.04f);
+            LastTile = TempTile1;
+        }
     }
+    */
 
     private void Update()
     {
+        
         //pelin nopeus
-        gameObject.transform.position += new Vector3(4 * Time.deltaTime, 0, 0);
+       gameObject.transform.position += new Vector3(4 * Time.deltaTime, 0, 0);
 
 
         //tiilien spawnaus
@@ -30,12 +40,12 @@ public class LevelGenerator : MonoBehaviour
             if (RandomInt1 == 1)
             {
                 GameObject TempTile1 = Instantiate(Tile1, transform);
-                Tile1.transform.position = new Vector3(-10, 0, 0);
+                TempTile1.transform.position = new Vector3(-14, 0, 0);
             }
             else if (RandomInt1 == 0)
             {
-                GameObject TempTile1 = Instantiate(Tile2, transform);
-                Tile1.transform.position = new Vector3(-10, 0, 0);
+                GameObject TempTile1 = Instantiate(Tile1, transform);
+                TempTile1.transform.position = new Vector3(-14, 0, 0);
             }
 
             int RandomInt2 = Random.Range(0, 3);
@@ -64,8 +74,20 @@ public class LevelGenerator : MonoBehaviour
                 TempTile3.transform.position = new Vector3(-30, 0, 0);
             }
 
+
+
             //spawnaus nopeus
             Index = Index + 10f;
+            
         }
+        
+        /*
+        public void SpawnNewTileLast()
+            {
+                GameObject TempTile1 = Instantiate(Tiles[0]);
+                TempTile1.transform.position = new Vector3(0, LastTile.transform.position.y-2.26f, LastTile.transform.position.z+10.04f);
+                LastTile = TempTile1;
+            }
+        */
     }
 }

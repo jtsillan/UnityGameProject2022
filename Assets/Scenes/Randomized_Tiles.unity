@@ -886,3 +886,4 @@ MonoBehaviour:
   Tile2: {fileID: 8773349179896003746, guid: aeff5f6b08e612f459d3a46ad3790e44, type: 3}
   Tile3: {fileID: 4212240907255486520, guid: b5a6ad6d758ee7946aeb379c6e894c55, type: 3}
   StartTile: {fileID: 4155398740320926995, guid: c506bc7670346434cac1174c5489076c, type: 3}
+  Tiles: []
