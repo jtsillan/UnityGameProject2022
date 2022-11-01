@@ -17,7 +17,8 @@ public class DestroyTiles : MonoBehaviour
     {
 
         Renderer thisRender = GetComponentInChildren<Renderer>();
-
+        
+        //kun gameObject menee render alueen ulkopuolelle, se tuhotaan
         if (!thisRender.isVisible)
         {
             Destroy(gameObject);

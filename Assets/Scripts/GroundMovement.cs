@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GroundMovement : MonoBehaviour
 {
-    //hahmon nopeus
+    //tile:n nopeus
     [SerializeField] float speed = 5;
 
 
     private void FixedUpdate()
     {
-        //liike eteenpain
+        //liike pelaajaan päin
         Vector3 backwardMove = transform.forward * speed * Time.fixedDeltaTime;
 
     }

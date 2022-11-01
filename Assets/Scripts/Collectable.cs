@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        //Etsii tagillä pelaajan
+        //Etsii tagillä pelaajan, kutsuu scoreplusone metodia ja tuhoaa collectable objektin kun pelaaja osuu
         if (collision.gameObject.tag == "Player")
         {
             ScoreText.ScorePlusOne();
