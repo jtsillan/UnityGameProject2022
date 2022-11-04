@@ -39,7 +39,6 @@ public enum InputCode
     ButtonTwo = 0b0010,
     HallSensor = 0b0100
     
-    //ButtonFour = 0b1000
 };
 
 /// <summary>
@@ -71,6 +70,10 @@ public class CustomController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// IsButtonTwoPressed
+    /// </summary>
+    /// <returns></returns>
     public bool IsButtonTwoPressed()
     {
         if((int)InputCode.ButtonTwo == (TcpServer.InputValue & (int)InputCode.ButtonTwo) && buttonTwoPressed == false)
@@ -87,9 +90,25 @@ public class CustomController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// IsHallSensorReading
+    /// </summary>
+    /// <returns></returns>
     public bool IsHallSensorReading()
     {
+        if((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == false)
+        {
+            hallSensorValue = true;
+            return true;
+        }
+        else if ((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == true)
+        {
+
+        }
+        else { hallSensorValue = false; }
+
         return false;
     }
+
 
 }

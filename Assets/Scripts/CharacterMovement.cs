@@ -33,8 +33,13 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    float lastAccepted = 0;
+    
+    float buttonOneLastPressedTime = 0;
+    
+    float buttonTwoLastPressedTime = 0;
 
+    float hallSensorLastReadTime = 0;
+    
     /// <summary>
     /// customController
     /// </summary>
@@ -45,36 +50,37 @@ public class CharacterMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
-        lastAccepted = Time.realtimeSinceStartup;
+        // time interval counter for ButtonOne in seconds
+        buttonOneLastPressedTime = Time.realtimeSinceStartup;
+
+        // time interval counter for ButtonTwo in seconds
+        buttonTwoLastPressedTime = Time.realtimeSinceStartup;
+
+        // time interval counter for HallSensor in seconds
+        hallSensorLastReadTime = Time.realtimeSinceStartup;
     }
 
     /// <summary>
     /// Update is called once per frame
     /// </summary>
     void Update()
-    {
-
-        
+    {        
         if(customController.IsButtonOnePressed())
         {
-        
+            Debug.Log("Button One Is Pressed. " + (Time.realtimeSinceStartup - buttonOneLastPressedTime));
+            buttonOneLastPressedTime = Time.realtimeSinceStartup;
         }
-
+        
         else if(customController.IsButtonTwoPressed())
         {
-            
+            Debug.Log("Button Two Is Pressed. " + (Time.realtimeSinceStartup - buttonTwoLastPressedTime));
+            buttonTwoLastPressedTime = Time.realtimeSinceStartup;
         }
 
         else if(customController.IsHallSensorReading())
         {
-            Debug.Log("Character - Update() -> timeinterval " + (Time.realtimeSinceStartup - lastAccepted));
-
-            lastAccepted = Time.realtimeSinceStartup;
+            Debug.Log("Character - Update() -> timeinterval " + (Time.realtimeSinceStartup - hallSensorLastReadTime));
+            hallSensorLastReadTime = Time.realtimeSinceStartup;
         }
-
-
-
-       // Debug.Log("Character - Update() -> Button Two Pressed " + customController.IsButtonTwoPressed());
-       // Debug.Log("Character - Update() -> Hall Sensor Reading Pressed " + customController.IsHallSensorReading());
     }
 }
