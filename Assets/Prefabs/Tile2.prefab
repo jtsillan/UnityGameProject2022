@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1713750684501558738}
-  - component: {fileID: -4478995966657426544}
+  - component: {fileID: 8560425844417465820}
   m_Layer: 0
   m_Name: Tile2
   m_TagString: Untagged
@@ -340,7 +340,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4478995966657426544
+--- !u!114 &8560425844417465820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,3 +352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a70e85fb0d3ce48b53144c9ec0d2e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Velocity: 0
+  MaxVelocity: -0.015
+  Acc: 0.001
+  AccSpeed: 0.001
+  MaxAcc: 0.001
+  MinAcc: -0.001

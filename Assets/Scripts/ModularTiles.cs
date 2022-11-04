@@ -9,7 +9,6 @@ public class ModularTiles : MonoBehaviour
     GameObject latestTile;
     int index;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +26,7 @@ public class ModularTiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
 
     // Spawnaa viimeisen tilen uudestaan

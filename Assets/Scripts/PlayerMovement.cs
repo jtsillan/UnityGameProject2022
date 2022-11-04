@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float horizontalInput;
     public float horizontalMultiplier = 2;
 
-
     private void FixedUpdate()
     {
         //liike sivuttain
@@ -21,10 +20,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
     private void Update()
     {
         //sivuttais liikkeen kontrolli
         horizontalInput = Input.GetAxis("Horizontal");
+
+
     }
 }
