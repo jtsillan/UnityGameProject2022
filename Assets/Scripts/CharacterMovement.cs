@@ -33,28 +33,48 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    float lastAccepted = 0;
 
     /// <summary>
     /// customController
     /// </summary>
-    [SerializeField]private CustomController customController;
+    [SerializeField] private CustomController customController;
 
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
     void Start()
     {
-        
+        lastAccepted = Time.realtimeSinceStartup;
     }
-
 
     /// <summary>
     /// Update is called once per frame
     /// </summary>
     void Update()
     {
-        // FIXME: STUPID SIMPLE EXAMPLE, ONLY FOR DEMO PURPOSE
 
-        Debug.Log("Character - Update() -> Button One Pressed " + customController.IsButtonOnePressed());
+        
+        if(customController.IsButtonOnePressed())
+        {
+        
+        }
+
+        else if(customController.IsButtonTwoPressed())
+        {
+            
+        }
+
+        else if(customController.IsHallSensorReading())
+        {
+            Debug.Log("Character - Update() -> timeinterval " + (Time.realtimeSinceStartup - lastAccepted));
+
+            lastAccepted = Time.realtimeSinceStartup;
+        }
+
+
+
+       // Debug.Log("Character - Update() -> Button Two Pressed " + customController.IsButtonTwoPressed());
+       // Debug.Log("Character - Update() -> Hall Sensor Reading Pressed " + customController.IsHallSensorReading());
     }
 }
