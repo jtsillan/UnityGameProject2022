@@ -7,11 +7,12 @@ TagManager:
   - Obstacle
   - Collectable
   - ScoreText
+  - PP
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PP
   - Water
   - UI
   - 

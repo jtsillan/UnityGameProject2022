@@ -7,14 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
 
     //sivuttaisliike ja sen nopeutus
-    float horizontalInput;
+    public float horizontalInput;
     public float horizontalMultiplier = 2;
 
 
     private void FixedUpdate()
     {
         //liike sivuttain
-        Vector3 horizontalMove = transform.right * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier;
+        Vector3 horizontalMove = -transform.forward * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier;
         //hahmon objektin liikutus
         rb.MovePosition(rb.position + horizontalMove);
 
