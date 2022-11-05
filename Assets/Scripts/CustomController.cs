@@ -48,7 +48,9 @@ public class CustomController : MonoBehaviour
 {
     bool buttonOnePressed = false;
     bool buttonTwoPressed = false;
+    bool buttonOneAndTwoPressed = false;
     bool hallSensorValue= false;
+
 
     /// <summary>
     /// IsButtonOnePressed
@@ -88,7 +90,8 @@ public class CustomController : MonoBehaviour
         else { buttonTwoPressed = false; }
 
         return false;
-    }
+    }   
+
 
     /// <summary>
     /// IsHallSensorReading
@@ -110,5 +113,15 @@ public class CustomController : MonoBehaviour
         return false;
     }
 
+     
+    /// <summary>
+    /// IsButtonOneAndTwoPressed
+    /// </summary>
+    /// <returns></returns>
+    public bool IsButtonOneAndTwoPressed()
+    {      
+    
+        return false;
+    }
 
 }

@@ -32,13 +32,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
-{
-    
-    float buttonOneLastPressedTime = 0;
-    
-    float buttonTwoLastPressedTime = 0;
+{   
 
     float hallSensorLastReadTime = 0;
+
+    float speed;
     
     /// <summary>
     /// customController
@@ -49,32 +47,32 @@ public class CharacterMovement : MonoBehaviour
     /// Start is called before the first frame update
     /// </summary>
     void Start()
-    {
-        // time interval counter for ButtonOne in seconds
-        buttonOneLastPressedTime = Time.realtimeSinceStartup;
-
-        // time interval counter for ButtonTwo in seconds
-        buttonTwoLastPressedTime = Time.realtimeSinceStartup;
-
+    {   
         // time interval counter for HallSensor in seconds
-        hallSensorLastReadTime = Time.realtimeSinceStartup;
+        hallSensorLastReadTime = Time.realtimeSinceStartup;        
     }
 
     /// <summary>
     /// Update is called once per frame
     /// </summary>
     void Update()
-    {        
+    {                
+
         if(customController.IsButtonOnePressed())
         {
-            Debug.Log("Button One Is Pressed. " + (Time.realtimeSinceStartup - buttonOneLastPressedTime));
-            buttonOneLastPressedTime = Time.realtimeSinceStartup;
+            Debug.Log("Button One Is Pressed. ");
+           
         }
         
         else if(customController.IsButtonTwoPressed())
         {
-            Debug.Log("Button Two Is Pressed. " + (Time.realtimeSinceStartup - buttonTwoLastPressedTime));
-            buttonTwoLastPressedTime = Time.realtimeSinceStartup;
+            Debug.Log("Button Two Is Pressed. ");
+            
+        }
+
+        else if (customController.IsButtonOneAndTwoPressed())
+        {
+            Debug.Log("Button One And Two Pressed");
         }
 
         else if(customController.IsHallSensorReading())
