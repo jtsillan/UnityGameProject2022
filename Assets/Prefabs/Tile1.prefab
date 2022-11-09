@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 16949916395903699}
   - component: {fileID: 3009865478293000656}
   - component: {fileID: 9132999942315009161}
-  - component: {fileID: 9007817909378135797}
+  - component: {fileID: 7800172288151439955}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Collectable
@@ -346,7 +346,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9007817909378135797
+--- !u!114 &7800172288151439955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -358,3 +358,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5571e6bf548d9984c8a73daccb1224e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  clip: {fileID: 8300000, guid: de0c014a141a87a4cb320be594cadbb8, type: 3}
