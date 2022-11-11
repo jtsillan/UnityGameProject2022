@@ -4,7 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     //hahmon objekti
-    public Rigidbody rb;
+    [SerializeField] Rigidbody rb;
 
     //sivuttaisliike ja sen nopeutus
     public float horizontalInput;
