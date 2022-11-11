@@ -5,17 +5,24 @@ using UnityEngine;
 public class TileFunction : MonoBehaviour
 {
 
-    public float Velocity = 0f;
-    public float MaxVelocity = -0.015f;   // Maxima Velocity
-    public float Acc = 0.001f;           // Current Acceleration
-    public float AccSpeed = 0.001f;      // Amount to increase Acceleration with.
-    public float MaxAcc = 0.001f;        // Max Acceleration
-    public float MinAcc = -0.001f;       // Min Acceleration
+    [SerializeField] float Velocity = 0f;
+    [SerializeField] float MaxVelocity = -0.015f;   // Maxima Velocity
+    [SerializeField] float Acc = 0.001f;           // Current Acceleration
+    [SerializeField] float AccSpeed = 0.001f;      // Amount to increase Acceleration with.
+    [SerializeField] float MaxAcc = 0.001f;        // Max Acceleration
+    [SerializeField] float MinAcc = -0.001f;       // Min Acceleration
+
+    GameObject modular;
+
+    ModularTiles tiles;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        modular = GameObject.Find("ModularGenerating");
+        tiles = modular.GetComponent<ModularTiles>();
+
     }
 
     // Update is called once per frame
@@ -46,9 +53,7 @@ public class TileFunction : MonoBehaviour
         // Poistaa tilet, jotka menneet ohitte
         if (transform.position.z < -30f)
         {
-            GameObject modular = GameObject.Find("ModularGenerating");
-            ModularTiles mt = modular.GetComponent<ModularTiles>();
-            mt.NewTileLast();
+            tiles.NewTileLast();
             Destroy(gameObject);
         }
         
