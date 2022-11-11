@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ModularTiles : MonoBehaviour
+public class TestSceneModularTiles : MonoBehaviour
 {
 
     [SerializeField] GameObject[] tiles;
@@ -13,20 +13,20 @@ public class ModularTiles : MonoBehaviour
     void Start()
     {
         // Uusien tilejen spawnaus
-        for ( int i = 0; i < 10; i++ )
+        for (int i = 0; i < 8; i++)
         {
             index = Random.Range(0, tiles.Length); // Tilejen randomisointi
             GameObject tempTile = Instantiate(tiles[index]);
-            tempTile.transform.position = new Vector3(0, 0, 0-i*-9.95f);
+            tempTile.transform.position = new Vector3(0, 0, 0 - i * -9.95f);
             latestTile = tempTile;
         }
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
- 
+
     }
 
     // Spawnaa viimeisen tilen uudestaan
@@ -34,7 +34,7 @@ public class ModularTiles : MonoBehaviour
     {
         index = Random.Range(0, tiles.Length);
         GameObject tempTile = Instantiate(tiles[index]);
-        tempTile.transform.position = new Vector3(0, latestTile.transform.position.y, latestTile.transform.position.z+9.95f);
+        tempTile.transform.position = new Vector3(0, latestTile.transform.position.y, latestTile.transform.position.z + 9.95f);
         latestTile = tempTile;
 
     }

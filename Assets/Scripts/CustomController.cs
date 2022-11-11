@@ -166,8 +166,6 @@ public class CustomController : MonoBehaviour
         bool onePressed = buttonOnePressed;
         bool twoPressed = buttonTwoPressed;
 
-        Debug.Log("StateMachine started (one=" + onePressed + ", two=" + twoPressed + ")");
-
         while (timer > 0.0f)
         {
             timer -= Time.deltaTime;
