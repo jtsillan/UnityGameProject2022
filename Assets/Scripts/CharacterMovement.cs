@@ -32,53 +32,78 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
-{   
+{
 
-    float hallSensorLastReadTime = 0;
+    //private float hallSensorLastReadTime = 0;
 
-    float speed;
-    
-    /// <summary>
-    /// customController
-    /// </summary>
-    [SerializeField] private CustomController customController;
+    //private float speed;
 
-    /// <summary>
-    /// Start is called before the first frame update
-    /// </summary>
+
+    [SerializeField] CustomController customController;
+
+    /*
     void Start()
-    {   
+    {
         // time interval counter for HallSensor in seconds
-        hallSensorLastReadTime = Time.realtimeSinceStartup;        
+        hallSensorLastReadTime = Time.realtimeSinceStartup;
+    }
+    */
+
+    void OnEnable()
+    {
+        customController.OnButtonOnePressed += MoveLeft;
+        customController.OnButtonTwoPressed += MoveRight;
+        customController.OnBothButtonsPressed += MoveUp;
     }
 
-    /// <summary>
-    /// Update is called once per frame
-    /// </summary>
-    void Update()
-    {                
 
-        if(customController.IsButtonOnePressed())
-        {
-            Debug.Log("Button One Is Pressed. ");
-           
-        }
-        
-        else if(customController.IsButtonTwoPressed())
-        {
-            Debug.Log("Button Two Is Pressed. ");
-            
-        }
+    void OnDisable()
+    {
+        customController.OnButtonOnePressed -= MoveLeft;
+        customController.OnButtonTwoPressed -= MoveRight;
+        customController.OnBothButtonsPressed -= MoveUp;
+    }
 
-        else if (customController.IsButtonOneAndTwoPressed())
-        {
-            Debug.Log("Button One And Two Pressed");
-        }
+    private void Update()
+    {
+        //MoveForward();
+    }
 
-        else if(customController.IsHallSensorReading())
+    /*
+    private void MoveForward()
+    {
+
+        if (customController.hallValue == true)
         {
-            Debug.Log("Character - Update() -> timeinterval " + (Time.realtimeSinceStartup - hallSensorLastReadTime));
+            //Debug.Log("MoveForward() --> hallSensorValue == true");            
+            float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
             hallSensorLastReadTime = Time.realtimeSinceStartup;
+
+            //Debug.Log("MoveForward() --> hallSensorTimeTimeInterval " + hallSensorTimeInterval);
+
+            speed = 0.8f / hallSensorTimeInterval;
+
+            //Debug.Log("MoveForward() --> speed " + speed);
+
+            transform.position += Vector3.forward * speed;
         }
+    }
+    */
+
+
+    void MoveLeft()
+    {
+        transform.position += Vector3.left;
+    }
+
+
+    void MoveRight()
+    {
+        transform.position += Vector3.right;
+    }
+
+    void MoveUp()
+    {
+        transform.position += Vector3.up;
     }
 }

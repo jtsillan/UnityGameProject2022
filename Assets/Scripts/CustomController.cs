@@ -29,6 +29,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Timers;
+using System;
 
 /// <summary>
 /// InputCode
@@ -38,7 +40,7 @@ public enum InputCode
     ButtonOne = 0b0001,
     ButtonTwo = 0b0010,
     HallSensor = 0b0100
-    
+
 };
 
 /// <summary>
@@ -46,82 +48,154 @@ public enum InputCode
 /// </summary>
 public class CustomController : MonoBehaviour
 {
-    bool buttonOnePressed = false;
-    bool buttonTwoPressed = false;
-    bool buttonOneAndTwoPressed = false;
-    bool hallSensorValue= false;
 
+    public bool buttonOnePressed = false;
+    public bool buttonTwoPressed = false;
+    [SerializeField] bool hallSensorValue = false;
+    public bool hallValue = false;
+
+
+
+    public Action<bool> OnButtonOneChanced;
+
+
+    public Action OnButtonOnePressed;
+    public Action OnButoonOneReleased;
+    public Action OnButtonTwoPressed;
+    public Action OnButtonTwoReleased;
+    public Action OnBothButtonsPressed;
+
+
+    // MonoBehaviour
+
+    void Update()
+    {
+        ReadButtonOne();
+        ReadButtonTwo();
+        HallSensorIsReading();
+    }
+
+
+
+    // BUTTON READING
 
     /// <summary>
     /// IsButtonOnePressed
     /// </summary>
     /// <returns></returns>
-    public bool IsButtonOnePressed()
+    public void ReadButtonOne()
     {
-        if((int)InputCode.ButtonOne == (TcpServer.InputValue & (int)InputCode.ButtonOne) && buttonOnePressed == false)
+        if ((int)InputCode.ButtonOne == (TcpServer.InputValue & (int)InputCode.ButtonOne) && buttonOnePressed == false)
         {
             buttonOnePressed = true;
-            return true;
-        }
-        else if ((int)InputCode.ButtonOne == (TcpServer.InputValue & (int)InputCode.ButtonOne) && buttonOnePressed == true )
-        {
-            
-        }
-        else { buttonOnePressed = false; }
 
-        return false;
+            if (buttonTwoPressed == false)
+            {
+                StartCoroutine(StateMachine());
+            }
+
+        }
+        else if ((int)InputCode.ButtonOne != (TcpServer.InputValue & (int)InputCode.ButtonOne) && buttonOnePressed == true)
+        {
+            buttonOnePressed = false;
+            OnButtonOneChanced?.Invoke(buttonOnePressed);
+            OnButoonOneReleased?.Invoke();
+        }
+
     }
 
     /// <summary>
     /// IsButtonTwoPressed
     /// </summary>
     /// <returns></returns>
-    public bool IsButtonTwoPressed()
+    public void ReadButtonTwo()
     {
-        if((int)InputCode.ButtonTwo == (TcpServer.InputValue & (int)InputCode.ButtonTwo) && buttonTwoPressed == false)
+        if ((int)InputCode.ButtonTwo == (TcpServer.InputValue & (int)InputCode.ButtonTwo) && buttonTwoPressed == false)
         {
-            buttonOnePressed = true;
-            return true;
-        }
-        else if ((int)InputCode.ButtonTwo == (TcpServer.InputValue & (int)InputCode.ButtonTwo) && buttonTwoPressed == true)
-        {
+            buttonTwoPressed = true;
+
+            if (buttonOnePressed == false)
+            {
+                StartCoroutine(StateMachine());
+            }
 
         }
-        else { buttonTwoPressed = false; }
-
-        return false;
-    }   
+        else if ((int)InputCode.ButtonTwo != (TcpServer.InputValue & (int)InputCode.ButtonTwo) && buttonTwoPressed == true)
+        {
+            buttonTwoPressed = false;
+            OnButtonTwoReleased?.Invoke();
+        }
+    }
 
 
     /// <summary>
-    /// IsHallSensorReading
+    /// HallSensorReading
     /// </summary>
     /// <returns></returns>
-    public bool IsHallSensorReading()
+    public bool HallSensorIsReading()
     {
-        if((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == false)
+        if ((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == false)
         {
             hallSensorValue = true;
+            hallValue = true;
             return true;
         }
         else if ((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == true)
         {
-
+            hallValue = false;
+            return false;
         }
-        else { hallSensorValue = false; }
-
-        return false;
+        else
+        {
+            hallValue = false;
+            hallSensorValue = false;
+            return false;
+        }
     }
 
-     
+
+
     /// <summary>
-    /// IsButtonOneAndTwoPressed
+    /// Couroutine StateMachine
     /// </summary>
     /// <returns></returns>
-    public bool IsButtonOneAndTwoPressed()
-    {      
-    
-        return false;
+    IEnumerator StateMachine()
+    {
+        float timer = 0.2f;
+
+        bool onePressed = buttonOnePressed;
+        bool twoPressed = buttonTwoPressed;
+
+        Debug.Log("StateMachine started (one=" + onePressed + ", two=" + twoPressed + ")");
+
+        while (timer > 0.0f)
+        {
+            timer -= Time.deltaTime;
+
+            if (buttonOnePressed && buttonTwoPressed)
+            {
+                onePressed = true;
+                twoPressed = true;
+                OnBothButtonsPressed?.Invoke();
+
+                timer = 0f;
+            }
+            else if (!buttonOnePressed && !buttonTwoPressed)
+            {
+                timer = 0f;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        if (onePressed && !twoPressed)
+        {
+            OnButtonOnePressed?.Invoke();
+        }
+        else if (twoPressed && !onePressed)
+        {
+            OnButtonTwoPressed?.Invoke();
+        }
     }
 
 }
