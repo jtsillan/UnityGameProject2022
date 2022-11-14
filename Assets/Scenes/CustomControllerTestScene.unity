@@ -712,6 +712,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 417390404230424294, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1458661092}
     - target: {fileID: 793570195286899531, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
       propertyPath: m_Name
       value: ModularManager
