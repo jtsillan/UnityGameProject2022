@@ -6,7 +6,11 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Randomized_Tiles");
     }
 
+        public void BackToMain ()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

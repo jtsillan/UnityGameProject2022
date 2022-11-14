@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 public class CollisionDetection : MonoBehaviour
 {
-    //Havaitsee törmäykset esteiden kanssa
+    //Havaitsee tï¿½rmï¿½ykset esteiden kanssa
     void OnCollisionEnter(Collision collision)
     {
 
-        //Etsii tagillä gameobjectin
+        //Etsii tagillï¿½ gameobjectin
         if (collision.gameObject.tag == "Obstacle")
         {
-            //Jos tagi on sama ja törmäys tapahtuu
-            SceneManager.LoadScene("Randomized_Tiles");
+            //Jos tagi on sama ja tï¿½rmï¿½ys tapahtuu. EDIT: Vaihtaa nyt GameOverScreen sceneen kun pelaaja tÃ¶rmÃ¤Ã¤
+            SceneManager.LoadScene("GameOverScreen");
             Debug.Log("Collision detected");
         }
     }
