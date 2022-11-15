@@ -84,12 +84,15 @@ public class CharacterMovement : MonoBehaviour
 
             speed = 0.8f / hallSensorTimeInterval;
 
-            //Debug.Log("MoveForward() --> speed " + speed);
+            Debug.Log("MoveForward() --> hallValue == true ---> speed " + speed);
 
             return speed;
         }
-
-        return speed;
+        else
+        {
+            Debug.Log("MoveForward() --> hallValue == false ---> speed 0");
+            return 0.0f;        
+        }
     }
     
 

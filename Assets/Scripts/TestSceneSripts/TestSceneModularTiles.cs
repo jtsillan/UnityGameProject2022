@@ -19,7 +19,7 @@ public class TestSceneModularTiles : MonoBehaviour
         {
             index = Random.Range(0, tiles.Length); // Tilejen randomisointi
             GameObject createdTile = Instantiate(tiles[index]);
-            createdTile.transform.position = new Vector3(0, 0, 0 + i * 5.0f);
+            createdTile.transform.position = new Vector3(0, 0, 1 + i * 5.0f);
             Transform startSpawn = createdTile.transform.Find("StartSpawnPoint");
 
             if(lastMadeTile != null)

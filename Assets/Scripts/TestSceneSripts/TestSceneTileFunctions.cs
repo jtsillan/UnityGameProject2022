@@ -16,7 +16,7 @@ public class TestSceneTileFunctions : MonoBehaviour
 
         if (transform.position.z < - 30.2f)
         {
-            GameObject generator = GameObject.Find("TileGeneratorManager");
+            GameObject generator = GameObject.Find("ModularManager");
             TestSceneModularTiles generatedTiles = generator.GetComponent<TestSceneModularTiles>();
             generatedTiles.MakeNewTileLast();
             Destroy(gameObject);

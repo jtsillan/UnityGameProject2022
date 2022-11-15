@@ -318,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ac145f33efaf3c94da2ec7d24b089a43, type: 2}
+  - {fileID: 2100000, guid: 1e22b70147565b8408a0b8c0ab6a611f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -457,7 +457,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458661093}
-  - component: {fileID: 1458661094}
   m_Layer: 0
   m_Name: StartTile
   m_TagString: Untagged
@@ -481,21 +480,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1458661094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458661092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa7ce0a17feb964b8f586e06aee49cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileToSpawn: {fileID: 0}
-  startPoint: {fileID: 0}
-  endPoint: {fileID: 0}
 --- !u!1 &1734424079
 GameObject:
   m_ObjectHideFlags: 0
