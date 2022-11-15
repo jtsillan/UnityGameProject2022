@@ -34,20 +34,20 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
 
-    //private float hallSensorLastReadTime = 0;
+    private float hallSensorLastReadTime = 0;
 
-    //private float speed;
+    private float speed = 0;
 
 
     [SerializeField] CustomController customController;
 
-    /*
+    
     void Start()
     {
         // time interval counter for HallSensor in seconds
         hallSensorLastReadTime = Time.realtimeSinceStartup;
     }
-    */
+    
 
     void OnEnable()
     {
@@ -64,13 +64,14 @@ public class CharacterMovement : MonoBehaviour
         customController.OnBothButtonsPressed -= MoveUp;
     }
 
+    
     private void Update()
     {
-        //MoveForward();
+        MoveForward();
     }
-
-    /*
-    private void MoveForward()
+    
+    
+    public float MoveForward()
     {
 
         if (customController.hallValue == true)
@@ -85,10 +86,12 @@ public class CharacterMovement : MonoBehaviour
 
             //Debug.Log("MoveForward() --> speed " + speed);
 
-            transform.position += Vector3.forward * speed;
+            return speed;
         }
+
+        return speed;
     }
-    */
+    
 
 
     void MoveLeft()

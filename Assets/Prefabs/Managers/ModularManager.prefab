@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2275208292284684298}
-  - component: {fileID: 417390404230424294}
+  - component: {fileID: -3781343704999812212}
   m_Layer: 0
   m_Name: ModularManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &417390404230424294
+--- !u!114 &-3781343704999812212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 793570195286899531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5419c61e9e7e57448e43e9a3a75e4f3, type: 3}
+  m_Script: {fileID: 11500000, guid: b14e13e8acbd102489db5f677e09d295, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 3140646122171524698, guid: a64b4518176a6954c8837ff4ed0410f9, type: 3}
-  - {fileID: 8518750491632097120, guid: 184314b8610deb144b4e7f3d01afe570, type: 3}
-  - {fileID: 8518750491632097120, guid: 265debbcea7bc9349bc1e46d4e2eb56a, type: 3}
-  - {fileID: 8518750491632097120, guid: 2a42f8ac1dfa75f4780a74381e4e5cfb, type: 3}
+  Velocity: 0
+  MaxVelocity: -0.015
+  Acc: 0.001
+  AccSpeed: 0.001
+  MaxAcc: 0.001
+  MinAcc: -0.001

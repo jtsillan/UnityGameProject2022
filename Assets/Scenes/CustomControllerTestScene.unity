@@ -457,6 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1458661093}
+  - component: {fileID: 1458661094}
   m_Layer: 0
   m_Name: StartTile
   m_TagString: Untagged
@@ -480,6 +481,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1458661094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458661092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa7ce0a17feb964b8f586e06aee49cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileToSpawn: {fileID: 0}
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
 --- !u!1 &1734424079
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734424080}
   m_Layer: 0
-  m_Name: NextSpawnPoint
+  m_Name: StartSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,10 +728,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 417390404230424294, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 1458661092}
+    - target: {fileID: -3781343704999812212, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
+      propertyPath: forwardSpeedMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 793570195286899531, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
       propertyPath: m_Name
       value: ModularManager
@@ -766,3 +782,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
+--- !u!1 &8700498057829135845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 793570195286899531, guid: 3d4712570943e6f40b17cd51629c9a68, type: 3}
+  m_PrefabInstance: {fileID: 8700498057829135844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8700498057829135846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700498057829135845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5419c61e9e7e57448e43e9a3a75e4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiles:
+  - {fileID: 3140646122171524698, guid: a64b4518176a6954c8837ff4ed0410f9, type: 3}
+  - {fileID: 8518750491632097120, guid: 184314b8610deb144b4e7f3d01afe570, type: 3}
+  - {fileID: 8518750491632097120, guid: 265debbcea7bc9349bc1e46d4e2eb56a, type: 3}
+  - {fileID: 8518750491632097120, guid: 2a42f8ac1dfa75f4780a74381e4e5cfb, type: 3}
