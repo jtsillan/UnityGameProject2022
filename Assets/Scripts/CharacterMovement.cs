@@ -39,6 +39,8 @@ public class CharacterMovement : MonoBehaviour
     private float speed = 0;
 
 
+    [SerializeField] float forwardSpeedMultiplier;
+
     [SerializeField] CustomController customController;
 
     
@@ -65,12 +67,12 @@ public class CharacterMovement : MonoBehaviour
     }
 
     
-    private void Update()
+    void Update()
     {
         MoveForward();
     }
-    
-    
+
+    /*
     public float MoveForward()
     {
 
@@ -84,17 +86,35 @@ public class CharacterMovement : MonoBehaviour
 
             speed = 0.8f / hallSensorTimeInterval;
 
-            Debug.Log("MoveForward() --> hallValue == true ---> speed " + speed);
+            Debug.Log("CharacterMovement -> MoveForward() --> hallValue == true ---> speed " + speed);
 
             return speed;
         }
         else
         {
-            Debug.Log("MoveForward() --> hallValue == false ---> speed 0");
+            Debug.Log(" CharacterMovement -> MoveForward() --> hallValue == false ---> speed 0");
             return 0.0f;        
         }
     }
-    
+    */
+
+    void MoveForward()
+    {
+        if (customController.hallValue == true)
+        {
+            //Debug.Log("MoveForward() --> hallSensorValue == true");            
+            float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
+            hallSensorLastReadTime = Time.realtimeSinceStartup;
+
+            //Debug.Log("MoveForward() --> hallSensorTimeTimeInterval " + hallSensorTimeInterval);
+
+            speed = 0.8f / hallSensorTimeInterval;
+
+            Debug.Log("CharacterMovement -> MoveForward() --> hallValue == true ---> speed " + speed);
+
+            transform.position += Vector3.forward * speed * forwardSpeedMultiplier;
+        }
+    }    
 
 
     void MoveLeft()

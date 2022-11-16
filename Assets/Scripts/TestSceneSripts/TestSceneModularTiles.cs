@@ -7,7 +7,11 @@ using Random = UnityEngine.Random;
 public class TestSceneModularTiles : MonoBehaviour
 {
 
-    [SerializeField] GameObject[] tiles;
+    [SerializeField] GameObject[] flatTiles;
+
+    [SerializeField] GameObject[] uphillTiles;
+
+    [SerializeField] GameObject[] downhillTiles;
 
     GameObject lastMadeTile;
 
@@ -15,11 +19,11 @@ public class TestSceneModularTiles : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < tiles.Length; i++)
+        for(int i = 0; i < flatTiles.Length; i++)
         {
-            index = Random.Range(0, tiles.Length); // Tilejen randomisointi
-            GameObject createdTile = Instantiate(tiles[index]);
-            createdTile.transform.position = new Vector3(0, 0, 1 + i * 5.0f);
+            index = Random.Range(0, flatTiles.Length); // Tilejen randomisointi
+            GameObject createdTile = Instantiate(flatTiles[index]);
+            createdTile.transform.position = new Vector3(0, 0, 1 * 5.0f);
             Transform startSpawn = createdTile.transform.Find("StartSpawnPoint");
 
             if(lastMadeTile != null)
@@ -35,9 +39,11 @@ public class TestSceneModularTiles : MonoBehaviour
 
     public void MakeNewTileLast()
     {
-        index = Random.Range(0, tiles.Length); // Tilejen randomisointi
-        GameObject createdTile = Instantiate(tiles[index]);
-        createdTile.transform.position = new Vector3(0, lastMadeTile.transform.position.y, 0);
+        int index2 = Random.Range(0, flatTiles.Length);
+        int index3 = Random.Range(0, uphillTiles.Length);
+        int index4 = Random.Range(0, downhillTiles.Length);
+        GameObject createdTile = Instantiate(flatTiles[index2]);
+        createdTile.transform.position = new Vector3(lastMadeTile.transform.position.x, lastMadeTile.transform.position.y, lastMadeTile.transform.position.z);
         lastMadeTile = createdTile;
     }
 
