@@ -25,7 +25,6 @@ public class Collectable : MonoBehaviour
             
             ScoreText.ScorePlusOne();
             Destroy(this.gameObject);
-            Debug.Log("Add point");
 
         }
     }

@@ -16,7 +16,6 @@ public class CollisionDetection : MonoBehaviour
         {
             //Jos tagi on sama ja t�rm�ys tapahtuu. EDIT: Vaihtaa nyt GameOverScreen sceneen kun pelaaja törmää
             SceneManager.LoadScene("GameOverScreen");
-            Debug.Log("Collision detected");
         }
     }
 }
