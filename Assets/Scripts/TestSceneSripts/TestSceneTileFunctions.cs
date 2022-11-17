@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestSceneTileFunctions : MonoBehaviour
-{
-    /*
-    [SerializeField] float forwardSpeedMultiplier;
-
-    [SerializeField] CharacterMovement characterMovement;
+{    
 
     TestSceneModularTiles generatedTiles;
 
@@ -20,16 +16,15 @@ public class TestSceneTileFunctions : MonoBehaviour
         generatedTiles = manager.GetComponent<TestSceneModularTiles>();
     }
 
-    void Update()
+
+    private void OnBecameInvisible()
     {
-
-        transform.position = transform.position + characterMovement.MoveForward() * forwardSpeedMultiplier * Vector3.back;
-
-        if (transform.position.z < - 30f)
-        {            
-            generatedTiles.MakeNewTileLast();
-            Destroy(gameObject);
-        }
+        generatedTiles.MakeNewUpHillLast();
+        generatedTiles.MakeNewFlatLast();
+        generatedTiles.MakeNewDownHillLast();
+        generatedTiles.MakeNewFlatLast();
+        Destroy(gameObject);
+        Debug.Log("On Become invisible");
     }
-    */
+
 }

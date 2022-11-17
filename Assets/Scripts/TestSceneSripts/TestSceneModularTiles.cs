@@ -19,79 +19,84 @@ public class TestSceneModularTiles : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < flatTiles.Length; i++)
+        
+        GameObject startTile = GameObject.Find("StartTile");
+
+        for(int i = 0; i < 5; i++)
         {
             index = Random.Range(0, flatTiles.Length); // Tilejen randomisointi
             GameObject createdTile = Instantiate(flatTiles[index]);
-            createdTile.transform.position = new Vector3(0, 0, 1 * 5.0f);
-            Transform startSpawn = createdTile.transform.Find("StartSpawnPoint");
+            Transform endSpawn = startTile.transform.Find("EndSpawnPoint");
 
             if(lastMadeTile != null)
             {
-                Transform endSpawn = lastMadeTile.transform.Find("EndSpawnPoint");
-                //createdTile.transform.position = lastMadeTile.transform.position;
-                createdTile.transform.position = endSpawn.position - startSpawn.localPosition;
+                Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
+                Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
+                createdTile.transform.position = endPoint.transform.position;
+                createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
 
             }
+            
+            else
+            {
+                Transform startPoint = startTile.transform.Find("EndSpawnPoint");
+                Transform endPoint = createdTile.transform.Find("EndSpawnPoint");
+                createdTile.transform.position = startPoint.transform.position;
+                createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - endPoint.transform.position);
+               
+            }
+            
             lastMadeTile = createdTile;
-        }
+        }        
     }
 
-    public void MakeNewTileLast()
+    public void MakeNewDownHillLast()
     {
-        int index2 = Random.Range(0, flatTiles.Length);
-        int index3 = Random.Range(0, uphillTiles.Length);
-        int index4 = Random.Range(0, downhillTiles.Length);
-        GameObject createdTile = Instantiate(flatTiles[index2]);
-        createdTile.transform.position = new Vector3(lastMadeTile.transform.position.x, lastMadeTile.transform.position.y, lastMadeTile.transform.position.z);
-        lastMadeTile = createdTile;
-    }
 
-
-
-
-    /*
-    [SerializeField] GameObject[] tiles;
-    GameObject latestTile;
-    GameObject spawnPoint;
-    Vector3 spawnPosition;
-    int index;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        spawnPoint = GameObject.Find("NextSpawnPoint");
-        spawnPoint.transform.position = spawnPosition;
-
-        
-        // Uusien tilejen spawnaus
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < downhillTiles.Length; i++)
         {
-            index = Random.Range(0, tiles.Length); // Tilejen randomisointi
-            GameObject tempTile = Instantiate(tiles[index]);
-            tempTile.transform.position = new Vector3(spawnPosition.x, spawnPosition.y, spawnPosition.z);
-            latestTile = tempTile;
-            /*
-            spawnPoint = GameObject.Find("TestTile/NextSpawnPoint");
-            spawnPoint.transform.position = spawnPosition;
+            int index = Random.Range(0, downhillTiles.Length);
+            GameObject createdTile = Instantiate(downhillTiles[index]);
+            Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
+            Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
+            createdTile.transform.position = endPoint.transform.position;
+            createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
+            lastMadeTile = createdTile;
+
         }
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MakeNewFlatLast()
     {
 
+        for (int i = 0; i < flatTiles.Length; i++)
+        {
+            int index = Random.Range(0, flatTiles.Length);
+            GameObject createdTile = Instantiate(flatTiles[index]);
+            Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
+            Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
+            createdTile.transform.position = endPoint.transform.position;
+            createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
+            lastMadeTile = createdTile;
+
+        }
     }
 
-    // Spawnaa viimeisen tilen uudestaan
-    public void NewTileLast()
+    
+    public void MakeNewUpHillLast()
     {
-        index = Random.Range(0, tiles.Length);
-        GameObject tempTile = Instantiate(tiles[index]);
-        tempTile.transform.position = new Vector3(0, latestTile.transform.position.y, latestTile.transform.position.z + 9.95f);
-        latestTile = tempTile;
 
-    }
-    */
+        for(int i = 0; i < uphillTiles.Length; i++)
+        {
+            int index = Random.Range(0, uphillTiles.Length);
+            GameObject createdTile = Instantiate(uphillTiles[index]);
+            Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
+            Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
+            createdTile.transform.position = endPoint.transform.position;
+            createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
+            lastMadeTile = createdTile;
+
+        }
+    }    
+
 }

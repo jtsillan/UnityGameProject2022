@@ -41,6 +41,8 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] float forwardSpeedMultiplier;
 
+    [SerializeField] float upwardSpeedMultiplier;
+
     [SerializeField] CustomController customController;
 
     
@@ -72,64 +74,45 @@ public class CharacterMovement : MonoBehaviour
         MoveForward();
     }
 
-    /*
-    public float MoveForward()
+    
+    public void MoveForward()
     {
-
         if (customController.hallValue == true)
-        {
-            //Debug.Log("MoveForward() --> hallSensorValue == true");            
+        {           
             float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
             hallSensorLastReadTime = Time.realtimeSinceStartup;
 
-            //Debug.Log("MoveForward() --> hallSensorTimeTimeInterval " + hallSensorTimeInterval);
-
             speed = 0.8f / hallSensorTimeInterval;
-
-            Debug.Log("CharacterMovement -> MoveForward() --> hallValue == true ---> speed " + speed);
-
-            return speed;
-        }
-        else
-        {
-            Debug.Log(" CharacterMovement -> MoveForward() --> hallValue == false ---> speed 0");
-            return 0.0f;        
-        }
-    }
-    */
-
-    void MoveForward()
-    {
-        if (customController.hallValue == true)
-        {
-            //Debug.Log("MoveForward() --> hallSensorValue == true");            
-            float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
-            hallSensorLastReadTime = Time.realtimeSinceStartup;
-
-            //Debug.Log("MoveForward() --> hallSensorTimeTimeInterval " + hallSensorTimeInterval);
-
-            speed = 0.8f / hallSensorTimeInterval;
-
-            Debug.Log("CharacterMovement -> MoveForward() --> hallValue == true ---> speed " + speed);
 
             transform.position += Vector3.forward * speed * forwardSpeedMultiplier;
         }
-    }    
+    }  
+    
 
 
     void MoveLeft()
     {
         transform.position += Vector3.left;
+
+        if (transform.position.x <= -4.5f)
+        {
+            transform.position = new Vector3(-4.5f, transform.position.y, transform.position.z);
+        }
     }
 
 
     void MoveRight()
     {
         transform.position += Vector3.right;
+
+        if(transform.position.x >= 4.5f)
+        {
+            transform.position = new Vector3(4.5f, transform.position.y, transform.position.z);
+        }
     }
 
     void MoveUp()
     {
-        transform.position += Vector3.up;
+        transform.position += Vector3.up * upwardSpeedMultiplier;
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2275208292284684298}
-  - component: {fileID: -3781343704999812212}
+  - component: {fileID: 222000993159627715}
   m_Layer: 0
   m_Name: ModularManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3781343704999812212
+--- !u!114 &222000993159627715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 793570195286899531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14e13e8acbd102489db5f677e09d295, type: 3}
+  m_Script: {fileID: 11500000, guid: b5419c61e9e7e57448e43e9a3a75e4f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 0
-  MaxVelocity: -0.015
-  Acc: 0.001
-  AccSpeed: 0.001
-  MaxAcc: 0.001
-  MinAcc: -0.001
+  flatTiles:
+  - {fileID: 3140646122171524698, guid: a64b4518176a6954c8837ff4ed0410f9, type: 3}
+  - {fileID: 7140725020287179602, guid: a8d0e0703038d834c9eaea1f20ba5ed7, type: 3}
+  - {fileID: 8082092528474591933, guid: 265debbcea7bc9349bc1e46d4e2eb56a, type: 3}
+  - {fileID: 2704160778953858943, guid: 2a42f8ac1dfa75f4780a74381e4e5cfb, type: 3}
+  - {fileID: 5374456325234171107, guid: 20fca50c2e35f6a4e998aa32d0e6ae57, type: 3}
+  uphillTiles:
+  - {fileID: 625147676250505557, guid: c1fedcbb158b9cc4f89fb9e889200ee3, type: 3}
+  - {fileID: 3715298213688862172, guid: 76d2b6197db03344fba86901a10b488b, type: 3}
+  - {fileID: 8809773586094715423, guid: 6e22e9033cd4df740aea1e2e35a2990b, type: 3}
+  - {fileID: 1364781973259782587, guid: cc0bf0e817665424086374d3718ba792, type: 3}
+  - {fileID: 4763648685502336044, guid: be7ccbba3e1a12e42b44617a92833ed6, type: 3}
+  downhillTiles:
+  - {fileID: 6646223502820730637, guid: 23a0291597be75d43b176a1e18e4b417, type: 3}
+  - {fileID: 4591126119019839695, guid: d2b5b445e5b976945ae52b086d3b32f4, type: 3}
+  - {fileID: 4006846219675084599, guid: ac2eab3f2d5786b4491286331c4f5c23, type: 3}
+  - {fileID: 7010873521014876031, guid: e8bc644961c424f40976f072aa04492f, type: 3}
+  - {fileID: 8807629690075247247, guid: 0dc8f438fd45cc0488bc1e028a53e759, type: 3}
