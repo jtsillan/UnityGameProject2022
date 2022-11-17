@@ -2,29 +2,33 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //hahmon nopeus
+    public float speed = 0;
 
     //hahmon objekti
-    [SerializeField] Rigidbody rb;
+    public Rigidbody rb;
 
     //sivuttaisliike ja sen nopeutus
-    public float horizontalInput;
-    public float horizontalMultiplier = 2;
+    float horizontalInput;
+
 
     private void FixedUpdate()
     {
+        //liike eteenpin
+        Vector3 forwardMove = transform.right * speed * Time.fixedDeltaTime;
         //liike sivuttain
-        Vector3 horizontalMove = -transform.forward * horizontalInput * Time.fixedDeltaTime * horizontalMultiplier;
+        Vector3 horizontalMove = -transform.forward * horizontalInput * speed * Time.fixedDeltaTime;
         //hahmon objektin liikutus
-        rb.MovePosition(rb.position + horizontalMove);
+        rb.MovePosition(rb.position  + horizontalMove);
 
     }
+
 
 
     private void Update()
     {
         //sivuttais liikkeen kontrolli
         horizontalInput = Input.GetAxis("Horizontal");
-
 
     }
 }

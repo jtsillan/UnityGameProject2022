@@ -5,12 +5,7 @@ using UnityEngine;
 public class TileFunction : MonoBehaviour
 {
 
-    [SerializeField] float Velocity = 0f;
-    [SerializeField] float MaxVelocity = -0.015f;   // Maxima Velocity
-    [SerializeField] float Acc = 0.001f;           // Current Acceleration
-    [SerializeField] float AccSpeed = 0.001f;      // Amount to increase Acceleration with.
-    [SerializeField] float MaxAcc = 0.001f;        // Max Acceleration
-    [SerializeField] float MinAcc = -0.001f;       // Min Acceleration
+    [SerializeField] float Velocity = 0.1f;
 
     GameObject modular;
 
@@ -26,30 +21,12 @@ public class TileFunction : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Pelin nopeus
         transform.position = transform.position + Vector3.forward * Velocity;
 
-        if (Input.GetKey(KeyCode.UpArrow))
-            Acc += AccSpeed;
-
-        if (Input.GetKey(KeyCode.DownArrow))
-            Acc -= AccSpeed;
-
-        if (Acc > MaxAcc)
-            Acc = MaxAcc;
-        else if (Acc < MinAcc)
-            Acc = MinAcc;
-
-        Velocity = (Velocity + Acc);
-
-        if (Velocity > MaxVelocity)
-            Velocity = MaxVelocity;
-
-        else if (Velocity < -MaxVelocity)
-            Velocity -= MaxVelocity;
-
+        
         // Poistaa tilet, jotka menneet ohitte
         if (transform.position.z < -30f)
         {
@@ -57,10 +34,6 @@ public class TileFunction : MonoBehaviour
             Destroy(gameObject);
         }
         
-    }
-
-    public void SpeedUp()
-    {
-        Velocity = Velocity + 0.02f;
+        
     }
 }
