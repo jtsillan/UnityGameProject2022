@@ -38,7 +38,7 @@ public class CharacterMovement : MonoBehaviour
 
     private float speed = 0;
 
-    private float angleX;
+    private int angleX;
 
 
     [SerializeField] float forwardSpeedMultiplier;
@@ -128,6 +128,7 @@ public class CharacterMovement : MonoBehaviour
 
     void GetPlayerAngle()
     {
-        angleX = transform.eulerAngles.x;
+        angleX = (int)transform.eulerAngles.x;
+        Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
     }
 }

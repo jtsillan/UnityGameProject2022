@@ -53,7 +53,7 @@ public class TestSceneModularTiles : MonoBehaviour
     public void MakeNewDownHillLast()
     {
 
-        for (int i = 0; i < downhillTiles.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, downhillTiles.Length);
             GameObject createdTile = Instantiate(downhillTiles[index]);
@@ -69,7 +69,7 @@ public class TestSceneModularTiles : MonoBehaviour
     public void MakeNewFlatLast()
     {
 
-        for (int i = 0; i < flatTiles.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, flatTiles.Length);
             GameObject createdTile = Instantiate(flatTiles[index]);
@@ -86,7 +86,7 @@ public class TestSceneModularTiles : MonoBehaviour
     public void MakeNewUpHillLast()
     {
 
-        for(int i = 0; i < uphillTiles.Length; i++)
+        for(int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, uphillTiles.Length);
             GameObject createdTile = Instantiate(uphillTiles[index]);
