@@ -126,7 +126,7 @@ public class CharacterMovement : MonoBehaviour
         transform.position += Vector3.up * upwardSpeedMultiplier;
     }
 
-    void GetPlayerAngle()
+    private void GetPlayerAngle()
     {
         angleX = (int)transform.eulerAngles.x;
         Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
