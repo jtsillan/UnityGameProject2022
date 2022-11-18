@@ -38,12 +38,21 @@ public class CharacterMovement : MonoBehaviour
 
     private float speed = 0;
 
+    private float angleX;
+
 
     [SerializeField] float forwardSpeedMultiplier;
 
     [SerializeField] float upwardSpeedMultiplier;
 
     [SerializeField] CustomController customController;
+
+
+
+    public float AngleX
+    {
+        get { return angleX; }
+    }
 
     
     void Start()
@@ -72,6 +81,7 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         MoveForward();
+        GetPlayerAngle();
     }
 
     
@@ -114,5 +124,10 @@ public class CharacterMovement : MonoBehaviour
     void MoveUp()
     {
         transform.position += Vector3.up * upwardSpeedMultiplier;
+    }
+
+    void GetPlayerAngle()
+    {
+        angleX = transform.eulerAngles.x;
     }
 }
