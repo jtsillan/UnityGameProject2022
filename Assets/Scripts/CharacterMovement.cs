@@ -129,6 +129,15 @@ public class CharacterMovement : MonoBehaviour
     private void GetPlayerAngle()
     {
         angleX = (int)transform.eulerAngles.x;
+
+        if(angleX <= 270 && angleX < 360)
+        {
+            angleX = 360 - angleX;
+        }
+        if(angleX <=0)
+        {
+            angleX = -angleX;
+        }
         Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
     }
 }
