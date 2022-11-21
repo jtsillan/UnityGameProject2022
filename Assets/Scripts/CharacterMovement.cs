@@ -46,6 +46,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] float upwardSpeedMultiplier;
 
     [SerializeField] CustomController customController;
+    [SerializeField] TcpServer tcpServer;
 
 
 
@@ -129,15 +130,17 @@ public class CharacterMovement : MonoBehaviour
     private void GetPlayerAngle()
     {
         angleX = (int)transform.eulerAngles.x;
-
-        if(angleX <= 270 && angleX < 360)
+        
+        if(270 <= angleX && angleX < 360)
         {
             angleX = 360 - angleX;
         }
-        if(angleX <=0)
+        else if(0 <= angleX && angleX <= 90)
         {
             angleX = -angleX;
-        }
+        }        
+        
+        tcpServer.WriteDataToBleApp(angleX);
         Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
     }
 }

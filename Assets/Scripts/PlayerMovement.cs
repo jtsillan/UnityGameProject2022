@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //hahmon nopeus
-    public float speed = 0;
+    public float speed = 5;
 
     //hahmon objekti
     public Rigidbody rb;
@@ -15,11 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //liike eteenpin
-        Vector3 forwardMove = transform.right * speed * Time.fixedDeltaTime;
+        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
         //liike sivuttain
-        Vector3 horizontalMove = -transform.forward * horizontalInput * speed * Time.fixedDeltaTime;
+        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime;
         //hahmon objektin liikutus
-        rb.MovePosition(rb.position  + horizontalMove);
+        rb.MovePosition(rb.position  + horizontalMove + forwardMove);
 
     }
 

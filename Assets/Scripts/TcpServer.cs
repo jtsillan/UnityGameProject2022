@@ -63,9 +63,14 @@ public class TcpServer : MonoBehaviour
 	public static int InputValue;
 
 	/// <summary>
-	/// Start
+	/// Ble Client
 	/// </summary>
-	void Start()
+	private NetworkStream client;
+
+    /// <summary>
+    /// Start
+    /// </summary>
+    void Start()
 	{
 		run = true;
 		// Start TcpServer background thread 		
@@ -93,6 +98,17 @@ public class TcpServer : MonoBehaviour
 
 	}
 
+	/// <summary>
+	/// WriteDataToBleApp, 
+	/// </summary>
+	/// <param name="angle"></param>
+	public void WriteDataToBleApp(int angle)
+	{
+		byte[] data = BitConverter.GetBytes(angle);
+		client.Write(data,0, data.Length);
+
+    }
+
 	/// <summary> 	
 	/// Runs in background TcpServerThread; Handles incomming TcpClient requests 	
 	/// </summary> 	
@@ -112,14 +128,19 @@ public class TcpServer : MonoBehaviour
 					// Get a stream object for reading 					
 					using (NetworkStream stream = connectedTcpClient.GetStream())
 					{
-						int length;
+						client = stream;
+
+                        int length;
 						// Read incomming stream into byte arrary. 						
 						while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
 						{
 						
 							InputValue = BitConverter.ToInt32(bytes, 0);
 
-							Debug.LogError(InputValue + " len " + length);	
+							Debug.LogError(InputValue + " len " + length);
+							
+							// Sending data to ble gatt
+							stream.Write(bytes, 0 , bytes.Length);
 		
 						}
 					}
