@@ -17,6 +17,14 @@ public class TestSceneTileFunctions : MonoBehaviour
     }
 
     /*
+    private void OnBecameInvisible()
+    {
+        DestroyImmediate(gameObject);
+        generatedTiles.MakeNewFlatLast();
+    }
+    */
+
+    /*
        private void OnBecameVisible()
        {
           //generatedTiles.MakeNewUpHillLast();
@@ -25,25 +33,22 @@ public class TestSceneTileFunctions : MonoBehaviour
           generatedTiles.MakeNewFlatLast();
            Debug.Log("On Become Visible --> Make New Tiles");
        }
-       */
+      */
+
 
     void OnCollisionEnter(Collision collision)
     {
         //Etsii tagill? gameobjectin
         if (collision.gameObject.tag == "TileDeleter")
         {
-            Destroy(gameObject);
-            generatedTiles.MakeNewFlatLast();
+            UnityEditor.EditorApplication.delayCall += () =>
+            {
+                DestroyImmediate(gameObject);
+                generatedTiles.MakeNewFlatLast();
+            };
         }
-
-
-        /*
-        private void OnBecameInvisible()
-        {
-            Destroy(gameObject);
-            Debug.Log("On Become invisible");
-        }
-        */
 
     }
+    
+    
 }

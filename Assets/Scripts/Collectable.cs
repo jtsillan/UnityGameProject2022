@@ -15,6 +15,11 @@ public class Collectable : MonoBehaviour
 
     }
 
+    void FixedUpdate()
+    {
+        transform.Rotate(75 * Time.deltaTime, 0, 0);
+    }
+
     //Havaitsee törmäykset keräiltävien kanssa
     void OnCollisionEnter(Collision collision)
     {

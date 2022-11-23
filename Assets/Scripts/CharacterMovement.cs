@@ -118,6 +118,7 @@ public class CharacterMovement : MonoBehaviour
         transform.position += Vector3.up * upwardSpeedMultiplier;
     }
 
+    
     private void GetPlayerAngle()
     {
         int angleX = (int)transform.eulerAngles.x;
@@ -132,6 +133,6 @@ public class CharacterMovement : MonoBehaviour
         }        
         
         tcpServer.WriteDataToBleApp(angleX);
-        Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
     }
+    
 }

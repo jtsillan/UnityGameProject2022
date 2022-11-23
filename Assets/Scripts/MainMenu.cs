@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene("Randomized_Tiles");
+        SceneManager.LoadScene("CustomControllerTestScene");
     }
 
         public void BackToMain ()
