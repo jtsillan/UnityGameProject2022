@@ -24,7 +24,7 @@ public class Collectable : MonoBehaviour
         {
             
             ScoreText.ScorePlusOne();
-            Destroy(this.gameObject);
+            Destroy(gameObject);
 
         }
     }
