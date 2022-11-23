@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43f601016d6974f8e8d271f372b198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeedMultiplier: 0.3
+  forwardSpeedMultiplier: 0.5
   upwardSpeedMultiplier: 3
   customController: {fileID: 1832286029}
   tcpServer: {fileID: 1832286030}
@@ -236,9 +236,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700763612}
   serializedVersion: 2
-  m_Mass: 1.21
-  m_Drag: 0.15
-  m_AngularDrag: 0.26
+  m_Mass: 1.11
+  m_Drag: 0.03
+  m_AngularDrag: 0.2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 1344383842}
   - component: {fileID: 1344383841}
   - component: {fileID: 1344383840}
+  - component: {fileID: 1344383843}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -523,6 +524,25 @@ Transform:
   m_Father: {fileID: 700763616}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344383843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344383839}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0284381b9f3ab43458cb497348eb4a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  distance: 4
+  height: 4
+  damping: 6.01
+  smoothRotation: 1
+  followBehind: 1
+  rotationDamping: 10
 --- !u!1 &1734424079
 GameObject:
   m_ObjectHideFlags: 0
