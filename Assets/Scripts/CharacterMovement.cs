@@ -38,8 +38,6 @@ public class CharacterMovement : MonoBehaviour
 
     private float speed = 0;
 
-    private int angleX;
-
 
     [SerializeField] float forwardSpeedMultiplier;
 
@@ -47,13 +45,6 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] CustomController customController;
     [SerializeField] TcpServer tcpServer;
-
-
-
-    public float AngleX
-    {
-        get { return angleX; }
-    }
 
     
     void Start()
@@ -129,7 +120,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void GetPlayerAngle()
     {
-        angleX = (int)transform.eulerAngles.x;
+        int angleX = (int)transform.eulerAngles.x;
         
         if(270 <= angleX && angleX < 360)
         {
