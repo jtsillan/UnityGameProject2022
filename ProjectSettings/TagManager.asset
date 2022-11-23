@@ -8,6 +8,8 @@ TagManager:
   - Collectable
   - ScoreText
   - PP
+  - TileDeleter
+  - Tile
   layers:
   - Default
   - TransparentFX
