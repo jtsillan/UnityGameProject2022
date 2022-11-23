@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TestSceneTileFunctions : MonoBehaviour
-{    
+{
 
     TestSceneModularTiles generatedTiles;
 
@@ -16,20 +16,34 @@ public class TestSceneTileFunctions : MonoBehaviour
         generatedTiles = manager.GetComponent<TestSceneModularTiles>();
     }
 
-    private void OnBecameVisible()
+    /*
+       private void OnBecameVisible()
+       {
+          //generatedTiles.MakeNewUpHillLast();
+          //generatedTiles.MakeNewFlatLast();
+          //generatedTiles.MakeNewDownHillLast();
+          generatedTiles.MakeNewFlatLast();
+           Debug.Log("On Become Visible --> Make New Tiles");
+       }
+       */
+
+    void OnCollisionEnter(Collision collision)
     {
-        generatedTiles.MakeNewUpHillLast();
-        generatedTiles.MakeNewFlatLast();
-        generatedTiles.MakeNewDownHillLast();
-        generatedTiles.MakeNewFlatLast();
-        Debug.Log("On Become Visible --> Make New Tiles");
+        //Etsii tagill? gameobjectin
+        if (collision.gameObject.tag == "TileDeleter")
+        {
+            Destroy(gameObject);
+            generatedTiles.MakeNewFlatLast();
+        }
+
+
+        /*
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
+            Debug.Log("On Become invisible");
+        }
+        */
+
     }
-
-
-    private void OnBecameInvisible()
-    {        
-        Destroy(gameObject);
-        Debug.Log("On Become invisible");
-    }
-
 }

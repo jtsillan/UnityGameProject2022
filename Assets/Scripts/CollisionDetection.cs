@@ -15,9 +15,9 @@ public class CollisionDetection : MonoBehaviour
         if (collision.gameObject.tag == "Obstacle")
         {
             //Jos tagi on sama ja t�rm�ys tapahtuu. EDIT: Vaihtaa nyt GameOverScreen sceneen kun pelaaja törmää
-            SceneManager.LoadScene("GameOverScreen");
+            //SceneManager.LoadScene("GameOverScreen");
         }
 
-        Debug.Log("StartArea");
+
     }
 }
