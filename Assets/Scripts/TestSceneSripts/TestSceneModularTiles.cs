@@ -22,7 +22,7 @@ public class TestSceneModularTiles : MonoBehaviour
         
         GameObject startTile = GameObject.Find("StartTile");
 
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 5; i++)
         {
             index = Random.Range(0, flatTiles.Length); // Tilejen randomisointi
             GameObject createdTile = Instantiate(flatTiles[index]);
@@ -49,11 +49,11 @@ public class TestSceneModularTiles : MonoBehaviour
             lastMadeTile = createdTile;
         }        
     }
-    /*
+
     public void MakeNewDownHillLast()
     {
 
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, downhillTiles.Length);
             GameObject createdTile = Instantiate(downhillTiles[index]);
@@ -65,12 +65,11 @@ public class TestSceneModularTiles : MonoBehaviour
 
         }
     }
-    */
 
     public void MakeNewFlatLast()
     {
 
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, flatTiles.Length);
             GameObject createdTile = Instantiate(flatTiles[index]);
@@ -83,11 +82,11 @@ public class TestSceneModularTiles : MonoBehaviour
         }
     }
 
-    /*
+    
     public void MakeNewUpHillLast()
     {
 
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, uphillTiles.Length);
             GameObject createdTile = Instantiate(uphillTiles[index]);
@@ -99,6 +98,5 @@ public class TestSceneModularTiles : MonoBehaviour
 
         }
     }    
-    */
 
 }
