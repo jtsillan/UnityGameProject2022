@@ -131,7 +131,7 @@ public class CharacterMovement : MonoBehaviour
             angleX = -angleX;
         }        
         
-        //tcpServer.WriteDataToBleApp(angleX);
+        tcpServer.WriteDataToBleApp(angleX);
         Debug.Log("CharacterMovement -> GetPlayerAngle --> " + angleX);
     }
 }
