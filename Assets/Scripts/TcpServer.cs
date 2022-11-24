@@ -105,9 +105,17 @@ public class TcpServer : MonoBehaviour
 	public void WriteDataToBleApp(int angle)
 	{
 		byte[] data = BitConverter.GetBytes(angle);
-		client.Write(data,0, data.Length);
+
+		if(client != null)
+		{
+			Debug.Log(data.Length);
+
+
+			client.Write(data,0, data.Length);
+		}
 
     }
+
 
 	/// <summary> 	
 	/// Runs in background TcpServerThread; Handles incomming TcpClient requests 	
@@ -140,7 +148,7 @@ public class TcpServer : MonoBehaviour
 							Debug.LogError(InputValue + " len " + length);
 							
 							// Sending data to ble gatt
-							stream.Write(bytes, 0 , bytes.Length);
+							//stream.Write(bytes, 0 , bytes.Length);
 		
 						}
 					}
