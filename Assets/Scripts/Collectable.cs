@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class Collectable : MonoBehaviour
 {
-    
+
+    public AudioClip clip;
+    public AudioSource source;
 
     private Score ScoreText;
 
@@ -27,7 +29,7 @@ public class Collectable : MonoBehaviour
         //Etsii tagillä pelaajan, kutsuu scoreplusone metodia ja tuhoaa collectable objektin kun pelaaja osuu
         if (collision.gameObject.tag == "Player")
         {
-            
+            source.PlayOneShot(clip);   
             ScoreText.ScorePlusOne();
             Destroy(gameObject);
 
