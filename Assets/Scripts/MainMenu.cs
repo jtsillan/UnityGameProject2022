@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame ()
     {
-        SceneManager.LoadScene("CustomControllerTestScene");
+        SceneManager.LoadScene("StartScene");
     }
 
         public void BackToMain ()

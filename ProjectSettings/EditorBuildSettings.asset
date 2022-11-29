@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 173d9d945b1cc554c838e8aecad2f6a8
   - enabled: 1
-    path: Assets/Scenes/Randomized_Tiles.unity
-    guid: 80af620110a391040a420c189e7b2744
-  - enabled: 1
-    path: Assets/Scenes/GameOverScreen.unity
-    guid: cebd1ad77e55307478a9d109af02eb6c
+    path: Assets/Scenes/StartScene.unity
+    guid: 50c7b1f9f201ebe4fa202e5db2a0fb70
   - enabled: 1
     path: Assets/Scenes/CustomControllerTestScene.unity
     guid: b4e63b1bd5197db4b98ddea1f1c988a0
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: cebd1ad77e55307478a9d109af02eb6c
   m_configObjects: {}
