@@ -1244,6 +1244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 806509090619532469, guid: b337842cda030e847b4aeb791907c811, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3824423565669040119, guid: b337842cda030e847b4aeb791907c811, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1291,6 +1295,14 @@ PrefabInstance:
     - target: {fileID: 5555280701544489803, guid: b337842cda030e847b4aeb791907c811, type: 3}
       propertyPath: m_Name
       value: ButtonManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5555280701544489803, guid: b337842cda030e847b4aeb791907c811, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9192705763452992804, guid: b337842cda030e847b4aeb791907c811, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b337842cda030e847b4aeb791907c811, type: 3}
