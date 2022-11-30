@@ -132,24 +132,24 @@ public class CustomController : MonoBehaviour
     /// HallSensorReading
     /// </summary>
     /// <returns></returns>
-    public bool HallSensorIsReading()
+    public void HallSensorIsReading()
     {
         if ((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == false)
         {
             hallSensorValue = true;
             hallValue = true;
-            return true;
+            //return true;
         }
         else if ((int)InputCode.HallSensor == (TcpServer.InputValue & (int)InputCode.HallSensor) && hallSensorValue == true)
         {
             hallValue = false;
-            return false;
+            //return false;
         }
         else
         {
             hallValue = false;
             hallSensorValue = false;
-            return false;
+            //return false;
         }
     }
 
