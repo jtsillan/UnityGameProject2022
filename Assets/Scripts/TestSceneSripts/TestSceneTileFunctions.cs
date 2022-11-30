@@ -41,11 +41,11 @@ public class TestSceneTileFunctions : MonoBehaviour
         //Etsii tagill? gameobjectin
         if (collision.gameObject.tag == "TileDeleter")
         {
-            UnityEditor.EditorApplication.delayCall += () =>
-            {
-                DestroyImmediate(gameObject);
-                generatedTiles.MakeNewFlatLast();
-            };
+            //UnityEditor.EditorApplication.delayCall += () =>
+            //{
+            //};
+            DestroyImmediate(gameObject);
+            generatedTiles.MakeNewFlatLast();
         }
 
     }
