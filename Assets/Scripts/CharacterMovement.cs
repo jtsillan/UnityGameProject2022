@@ -135,6 +135,7 @@ public class CharacterMovement : MonoBehaviour
         }        
         
         tcpServer.WriteDataToBleApp(angleX);
+
     }
     
 }
