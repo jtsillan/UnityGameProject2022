@@ -55,7 +55,7 @@ public class TestSceneTileFunctions : MonoBehaviour
              */
             generatedTiles.MakeNewFlatLast();
 
-            DestroyImmediate(gameObject);
+            Destroy(gameObject);
 
         }
 
