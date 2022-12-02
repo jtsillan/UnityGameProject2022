@@ -56,14 +56,20 @@ public class CharacterMovement : MonoBehaviour
 
         customController = input.GetComponent<CustomController>();
         tcpServer = input.GetComponent<TcpServer>();
+
+        OnEnable();
     }
     
 
     void OnEnable()
     {
-        customController.OnButtonOnePressed += MoveLeft;
-        customController.OnButtonTwoPressed += MoveRight;
-        customController.OnBothButtonsPressed += MoveUp;
+        if (customController != null)
+        {
+            customController.OnButtonOnePressed += MoveLeft;
+            customController.OnButtonTwoPressed += MoveRight;
+            customController.OnBothButtonsPressed += MoveUp;
+
+        }
     }
 
 
@@ -92,11 +98,19 @@ public class CharacterMovement : MonoBehaviour
             speed = (0.036f / hallSensorTimeInterval) / 6f;
             
             //Debug.Log("CharacterMovement -> Moveforward() --> speed: " + speed);
-
-            if (speed < 0.006f)
+            
+        }
+        else
+        {
+            if (speed > 0)
             {
-                speed = 0f;
-            }            
+                speed -= 0.001f;
+            }
+            else
+            {
+                speed = 0;
+            }
+            
         }
 
         transform.position += Vector3.forward * speed * forwardSpeedMultiplier;

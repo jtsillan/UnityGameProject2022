@@ -5342,7 +5342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43f601016d6974f8e8d271f372b198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeedMultiplier: 1.75
+  forwardSpeedMultiplier: 0.61
   upwardSpeedMultiplier: 1.07
   customController: {fileID: 0}
   tcpServer: {fileID: 0}

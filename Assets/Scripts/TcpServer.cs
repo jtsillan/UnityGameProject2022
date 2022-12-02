@@ -37,7 +37,11 @@ using UnityEngine;
 
 public class TcpServer : MonoBehaviour
 {
-	
+	/// <summary>
+	/// 
+	/// </summary>
+	public static TcpServer instance;
+
 	/// <summary> 	
 	/// TCPListener to listen for incomming TCP connection 	
 	/// requests. 	
@@ -84,8 +88,16 @@ public class TcpServer : MonoBehaviour
 	/// </summary>
 	private void Awake()
 	{
-		DontDestroyOnLoad(this.gameObject);
+		if (TcpServer.instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 
+        DontDestroyOnLoad(this.gameObject);
     }
 
 	/// <summary>
