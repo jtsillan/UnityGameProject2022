@@ -79,6 +79,12 @@ public class TcpServer : MonoBehaviour
 		tcpListenerThread.Start();
 	}
 
+	private void Awake()
+	{
+		DontDestroyOnLoad(this.gameObject);
+
+    }
+
 	/// <summary>
 	/// OnDestroy
 	/// </summary>
