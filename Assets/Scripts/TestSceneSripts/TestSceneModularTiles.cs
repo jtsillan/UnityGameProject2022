@@ -15,7 +15,7 @@ public class TestSceneModularTiles : MonoBehaviour
 
     GameObject lastMadeTile;
 
-    private int index;
+    //private int index;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class TestSceneModularTiles : MonoBehaviour
 
         for(int i = 0; i < 15; i++)
         {
-            index = Random.Range(0, flatTiles.Length); // Tilejen randomisointi
+            int index = Random.Range(0, flatTiles.Length); // Tilejen randomisointi
             GameObject createdTile = Instantiate(flatTiles[index]);
             Transform endSpawn = startTile.transform.Find("EndSpawnPoint");
 
@@ -70,15 +70,16 @@ public class TestSceneModularTiles : MonoBehaviour
     public void MakeNewFlatLast()
     {
 
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             int index = Random.Range(0, flatTiles.Length);
+            
             GameObject createdTile = Instantiate(flatTiles[index]);
             Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
             Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
             createdTile.transform.position = endPoint.transform.position;
             createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
-            lastMadeTile = createdTile;
+            lastMadeTile = createdTile;       
 
         }
     }

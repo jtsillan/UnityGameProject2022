@@ -51,6 +51,11 @@ public class CharacterMovement : MonoBehaviour
     {
         // time interval counter for HallSensor in seconds
         hallSensorLastReadTime = Time.realtimeSinceStartup;
+
+        GameObject input = GameObject.Find("ButtonManager");
+
+        customController = input.GetComponent<CustomController>();
+        tcpServer = input.GetComponent<TcpServer>();
     }
     
 
