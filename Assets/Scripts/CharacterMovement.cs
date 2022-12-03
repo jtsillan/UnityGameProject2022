@@ -95,10 +95,8 @@ public class CharacterMovement : MonoBehaviour
             float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
             hallSensorLastReadTime = Time.realtimeSinceStartup;
 
-            speed = (0.036f / hallSensorTimeInterval) / 6f;
+            speed = 0.006f / hallSensorTimeInterval;
             
-            //Debug.Log("CharacterMovement -> Moveforward() --> speed: " + speed);
-
         }
         else
         {

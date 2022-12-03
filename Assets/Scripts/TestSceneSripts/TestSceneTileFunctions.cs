@@ -53,17 +53,15 @@ public class TestSceneTileFunctions : MonoBehaviour
              *       generatedTiles.MakeNewFlatLast();
              * }
              */
-
+             /*
              UnityEditor.EditorApplication.delayCall += () =>
              {
-                Destroy(gameObject);
-                generatedTiles.MakeNewFlatLast();
              };
-
+             */
+            generatedTiles.MakeNewFlatLast();
+            Destroy(gameObject);
 
         }
-
-    }
-    
+    }  
     
 }
