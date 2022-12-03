@@ -16,16 +16,21 @@ public class DataManager : MonoBehaviour
     public int currenthighScore = 0;
     public int currentScore = 0;
     public bool isnewscore = false;
+
     private void Awake()
     {
-
 
         if(instance==null)
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
+
     private void Start()
     {
         data = new GameData();
