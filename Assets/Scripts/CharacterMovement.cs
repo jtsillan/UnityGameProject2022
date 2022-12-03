@@ -98,7 +98,7 @@ public class CharacterMovement : MonoBehaviour
             speed = (0.036f / hallSensorTimeInterval) / 6f;
             
             //Debug.Log("CharacterMovement -> Moveforward() --> speed: " + speed);
-            
+
         }
         else
         {
@@ -111,11 +111,11 @@ public class CharacterMovement : MonoBehaviour
                 speed = 0;
             }
             
-        }
+        }  
 
         transform.position += Vector3.forward * speed * forwardSpeedMultiplier;
-    }  
-    
+    }
+
 
 
     void MoveLeft()

@@ -10,6 +10,7 @@ TagManager:
   - PP
   - TileDeleter
   - Tile
+  - datamanager
   layers:
   - Default
   - TransparentFX

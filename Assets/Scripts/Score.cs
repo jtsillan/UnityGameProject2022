@@ -5,20 +5,37 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private int ScoreInt;
+    public int ScoreInt;
     public Text ScoreText;
+    public int highScore;
+    public bool newHighScore;
     
+    public void Start()
+    {
+         
+        highScore = DataManager.instance.currenthighScore;
+    }
 
-    //lisää pisteen scoreen
+    //lisï¿½ï¿½ pisteen scoreen
     public void ScorePlusOne()
     {
         ScoreInt++;
+        DataManager.instance.currentScore = ScoreInt;
+
     }
 
 
-    //päivittää score tekstin
+    //pï¿½ivittï¿½ï¿½ score tekstin
     private void Update()
     {
         ScoreText.text = ScoreInt.ToString();
+        if(ScoreInt > highScore)
+        {
+//            DataManager.instance.currentScore=ScoreInt ;
+          
+            
+
+        }
+
     }
 }

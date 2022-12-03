@@ -14,7 +14,7 @@ public class TestSceneTileFunctions : MonoBehaviour
     {
         manager = GameObject.Find("ModularManager");
         generatedTiles = manager.GetComponent<TestSceneModularTiles>();
-        
+
     }
 
 
@@ -43,9 +43,9 @@ public class TestSceneTileFunctions : MonoBehaviour
         //Etsii tagill? gameobjectin
         if (collision.gameObject.tag == "TileDeleter")
         {
-            // hae kentästä gameobjekti tagilla "Tile" ja "Obstacle"
+            //hae kentï¿½stï¿½ gameobjekti tagilla "Tile" ja "Obstacle"
             // laske yhteen niiden pituudet
-            // jos pituudet < maksimimäärä tilejä kentässä suorita makenewflatlast()
+            // jos pituudet < maksimimï¿½ï¿½rï¿½ tilejï¿½ kentï¿½ssï¿½ suorita makenewflatlast()
             // GameObject[] tiles = GameObject.FindWithTag("Tile");
             // GameObject[] obstacles = GameObject.FindWithTag("Obstacle");
             /* if ((tiles.Lenght + obstacles.Lenght) < 25)
@@ -53,9 +53,13 @@ public class TestSceneTileFunctions : MonoBehaviour
              *       generatedTiles.MakeNewFlatLast();
              * }
              */
-            generatedTiles.MakeNewFlatLast();
 
-            Destroy(gameObject);
+             UnityEditor.EditorApplication.delayCall += () =>
+             {
+                Destroy(gameObject);
+                generatedTiles.MakeNewFlatLast();
+             };
+
 
         }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3824423565669040119}
   - component: {fileID: 9192705763452992804}
   - component: {fileID: 806509090619532469}
+  - component: {fileID: -7253177794500474484}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -61,3 +62,15 @@ MonoBehaviour:
   buttonTwoPressed: 0
   hallSensorValue: 0
   hallValue: 0
+--- !u!114 &-7253177794500474484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555280701544489803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd4d8616f34fc544986115176a6c75b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

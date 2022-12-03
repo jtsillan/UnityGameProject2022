@@ -73,13 +73,13 @@ public class TestSceneModularTiles : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             int index = Random.Range(0, flatTiles.Length);
-            
+
             GameObject createdTile = Instantiate(flatTiles[index]);
             Transform endPoint = lastMadeTile.transform.Find("StartSpawnPoint");
             Transform startPoint = createdTile.transform.Find("EndSpawnPoint");
             createdTile.transform.position = endPoint.transform.position;
             createdTile.transform.position = createdTile.transform.position + (createdTile.transform.position - startPoint.transform.position);
-            lastMadeTile = createdTile;       
+            lastMadeTile = createdTile;
 
         }
     }

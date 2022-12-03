@@ -9,6 +9,10 @@ using UnityEngine.XR;
 public class CollisionDetection : MonoBehaviour
 {
     
+    private void Start()
+    {
+        
+    }
     //Havaitsee t�rm�ykset esteiden kanssa
     void OnCollisionEnter(Collision collision)
     {
@@ -17,7 +21,19 @@ public class CollisionDetection : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //Jos tagi on sama ja t�rm�ys tapahtuu. EDIT: Vaihtaa nyt GameOverScreen sceneen kun pelaaja törmää
-            SceneManager.LoadScene("GameOverScreen");
+            if (DataManager.instance.check_Can_StoreNewHighScore())
+            {
+                
+
+                SceneManager.LoadScene("HighScore");
+
+
+
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOverScreen");
+            }
         }
 
 

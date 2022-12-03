@@ -25,9 +25,18 @@ public class TimerScript : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("GameOverScreen");
-                TimeLeft = 0;
-                TimerOn = false;
+                if (DataManager.instance.check_Can_StoreNewHighScore())
+                {
+                    SceneManager.LoadScene("HighScore");
+                    TimeLeft = 0;
+                    TimerOn = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene("GameOverScreen");
+                    TimeLeft = 0;
+                    TimerOn = false;
+                }
             }
         }
     }

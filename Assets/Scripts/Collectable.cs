@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour
 
     private void Start()
     {
-        ScoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Score>();
+        ScoreText = GameObject.Find("ScoreInput").GetComponent<Score>();
 
     }
 
