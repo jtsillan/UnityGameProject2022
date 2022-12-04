@@ -15,7 +15,7 @@ public class GameOverHighScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        highscoretext.text = "SCORE: " + DataManager.instance.currentScore;
+        highscoretext.text = " " + DataManager.instance.currentScore;
 
     }
 }
