@@ -13,8 +13,11 @@ public class MainMenuScroller : MonoBehaviour
     public GameObject TutorialMenu;
     public GameObject TutorialBackButton;
     public GameObject OptionsBackButton;
+    public GameObject ArrowPlay;
+    public GameObject ArrowOptions;
+    public GameObject ArrowTutorial;
     [SerializeField] CustomController customController;
-    private string[] letters = {"_","Play", "Options", "Tutorial","_"};
+    private string[] letters = {"_","Play", "Options", "Tutorial","_","Back1"};
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,6 +26,7 @@ public class MainMenuScroller : MonoBehaviour
         selectionLetters[currentLetterSelection].color = Color.red;
         GameObject input = GameObject.Find("ButtonManager");
         customController = input.GetComponent<CustomController>();
+        ArrowPlay.SetActive(true);
     }
 
     private void Update()
@@ -43,14 +47,22 @@ public class MainMenuScroller : MonoBehaviour
             
             if (currentLetter == 1)
             {
+                ArrowPlay.SetActive(true);
+                ArrowOptions.SetActive(false);
+                ArrowTutorial.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    ArrowPlay.SetActive(false);
                     SceneManager.LoadScene("StartScene");
                 }
             }
 
             if (currentLetter == 2)
             {
+
+                ArrowPlay.SetActive(false);
+                ArrowOptions.SetActive(true);
+                ArrowTutorial.SetActive(false);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     //SceneManager.LoadScene("StartScene");
@@ -59,6 +71,9 @@ public class MainMenuScroller : MonoBehaviour
 
             if (currentLetter == 3)
             {
+            ArrowPlay.SetActive(false);
+            ArrowOptions.SetActive(false);
+            ArrowTutorial.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TutorialMenu.SetActive(true);
