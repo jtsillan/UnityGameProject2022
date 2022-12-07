@@ -9,12 +9,22 @@ public class TestSceneTileFunctions : MonoBehaviour
 
     GameObject manager;
 
+    bool destroyMe = false;
+
 
     void Start()
     {
         manager = GameObject.Find("ModularManager");
         generatedTiles = manager.GetComponent<TestSceneModularTiles>();
 
+    }
+
+    void Update()
+    {
+        if (destroyMe == true)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -59,7 +69,7 @@ public class TestSceneTileFunctions : MonoBehaviour
              };
              */
             generatedTiles.MakeNewFlatLast();
-            Destroy(gameObject);
+            destroyMe = true;
 
         }
     }  
