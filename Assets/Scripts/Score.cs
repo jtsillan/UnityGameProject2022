@@ -31,10 +31,8 @@ public class Score : MonoBehaviour
         ScoreText.text = ScoreInt.ToString();
         if(ScoreInt > highScore)
         {
-//            DataManager.instance.currentScore=ScoreInt ;
+            DataManager.instance.currentScore=ScoreInt;
           
-            
-
         }
 
     }
