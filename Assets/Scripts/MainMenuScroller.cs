@@ -9,6 +9,10 @@ public class MainMenuScroller : MonoBehaviour
     public TMP_Text[] selectionLetters;
     public int currentLetter;
     private int currentLetterSelection = 1;
+    public GameObject OptionsMenu;
+    public GameObject TutorialMenu;
+    public GameObject TutorialBackButton;
+    public GameObject OptionsBackButton;
     [SerializeField] CustomController customController;
     private string[] letters = {"_","Play", "Options", "Tutorial","_"};
     // Start is called before the first frame update
@@ -39,70 +43,47 @@ public class MainMenuScroller : MonoBehaviour
             
             if (currentLetter == 1)
             {
-                Debug.Log("Asd11");
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    Debug.Log("Asd");
-                    SceneManager.LoadScene("GameOverScreen");
+                    SceneManager.LoadScene("StartScene");
+                }
+            }
+
+            if (currentLetter == 2)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    //SceneManager.LoadScene("StartScene");
+                }
+            }
+
+            if (currentLetter == 3)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    TutorialMenu.SetActive(true);
+                    currentLetter += 2;
+                    selectionLetters[currentLetter-1].color = Color.black;
+                    selectionLetters[currentLetter].color = Color.red;
                 }
             }
         
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) && currentLetter != 5)
         {
             currentLetterSelection++;
             currentLetter++;
             Thread.Sleep(100);
             selectionLetters[currentLetter-1].color = Color.black;
             selectionLetters[currentLetter].color = Color.red;
-
-            if (currentLetter == 2)
-            {
-                if (Input.GetKeyDown("enter"))
-                {
-                    SceneManager.LoadScene("GameOverScreen");
-                }
-            }
-
-            if (currentLetter == 3)
-            {
-                if (Input.GetKeyDown("enter"))
-                {
-                    SceneManager.LoadScene("GameOverScreen");
-                }
-            }
         }
-
         //ALKAA TOINEN OSA
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && currentLetter != 5)
         {
             currentLetterSelection--;
             currentLetter--;
             Thread.Sleep(100);
             selectionLetters[currentLetter+1].color = Color.black;
             selectionLetters[currentLetter].color = Color.red;
-            if (currentLetter == 1)
-            {
-                if (Input.GetKeyDown("enter"))
-                {
-                    SceneManager.LoadScene("GameOverScreen");
-                }
-            }
-
-            if (currentLetter == 2)
-            {
-                if (Input.GetKeyDown("enter"))
-                {
-                    SceneManager.LoadScene("GameOverScreen");
-                }
-            }
-
-            if (currentLetter == 3)
-            {
-                if (Input.GetKeyDown("enter"))
-                {
-                    SceneManager.LoadScene("GameOverScreen");
-                }
-            }
         }
         //LOPPUU TOINEN OSA
     }
