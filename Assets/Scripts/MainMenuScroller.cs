@@ -16,6 +16,7 @@ public class MainMenuScroller : MonoBehaviour
     public GameObject ArrowPlay;
     public GameObject ArrowOptions;
     public GameObject ArrowTutorial;
+    public GameObject BackArrowTutorial;
     [SerializeField] CustomController customController;
     private string[] letters = {"_","Play", "Options", "Tutorial","_","Back1"};
     // Start is called before the first frame update
@@ -33,15 +34,13 @@ public class MainMenuScroller : MonoBehaviour
     {   
             if (currentLetter == 4)
             {
-                selectionLetters[currentLetter-1].color = Color.black;
-                selectionLetters[currentLetter-3].color = Color.red;
+
                 currentLetter -= 3;
             }
 
             if (currentLetter == 0)
             {
-                selectionLetters[currentLetter+1].color = Color.black;
-                selectionLetters[currentLetter+3].color = Color.red;
+
                 currentLetter += 3;
             }
             
@@ -57,17 +56,46 @@ public class MainMenuScroller : MonoBehaviour
                 }
             }
 
-            if (currentLetter == 2)
+            if (GameObject.Find("Options") == true)
             {
-
-                ArrowPlay.SetActive(false);
-                ArrowOptions.SetActive(true);
-                ArrowTutorial.SetActive(false);
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    //SceneManager.LoadScene("StartScene");
+
+                    TutorialMenu.SetActive(false);
+                    ArrowPlay.SetActive(false);
+                    ArrowTutorial.SetActive(false);
+                    ArrowOptions.SetActive(true);
+                    Debug.Log(currentLetter);
                 }
             }
+            if (currentLetter == 2)
+            {
+            ArrowPlay.SetActive(false);
+            ArrowOptions.SetActive(true);
+            ArrowTutorial.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    OptionsMenu.SetActive(true);
+                    if (GameObject.Find("Options") == true)
+                    {
+                        currentLetter += 4;
+                        Debug.Log(currentLetter);
+                    }
+                }
+            }
+
+            if (GameObject.Find("Tutorial") == true)
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    currentLetter -= 4;
+                    TutorialMenu.SetActive(false);
+                    ArrowPlay.SetActive(true);
+                    ArrowTutorial.SetActive(false);
+                    Debug.Log(currentLetter);
+                }
+            }
+
 
             if (currentLetter == 3)
             {
@@ -77,11 +105,16 @@ public class MainMenuScroller : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     TutorialMenu.SetActive(true);
-                    currentLetter += 2;
-                    selectionLetters[currentLetter-1].color = Color.black;
-                    selectionLetters[currentLetter].color = Color.red;
+                    if (GameObject.Find("Tutorial") == true)
+                    {
+                        currentLetter += 2;
+                        Debug.Log(currentLetter);
+                    }
                 }
             }
+
+
+
         
         if (Input.GetKeyDown(KeyCode.DownArrow) && currentLetter != 5)
         {
