@@ -13,6 +13,7 @@ public class NameChooser : MonoBehaviour
     public string highScoreWithName;
     public string playerName;
     public int currentHighScore;
+    [SerializeField] CustomController customController;
     private string[] letters = {"_","A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","_"};
     // Start is called before the first frame update
     private void Start()
@@ -21,13 +22,19 @@ public class NameChooser : MonoBehaviour
         currentLetter = 1;
         currentLetterSelection = 1;
         selectionLetters[currentLetterSelection].color = Color.red;
+
+        // Hae buttonmanager gameobject
+        // ota sieltä customcontroller
+        GameObject input = GameObject.Find("ButtonManager");
+
+        customController = input.GetComponent<CustomController>();
     }
 
     private void Update()
     {
         timeRemaining -= Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (customController.buttonOnePressed == true)
         {
             if (currentLetterSelection ==26)
             {
