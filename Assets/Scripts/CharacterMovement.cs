@@ -30,6 +30,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -95,7 +96,7 @@ public class CharacterMovement : MonoBehaviour
             float hallSensorTimeInterval = Time.realtimeSinceStartup - hallSensorLastReadTime;
             hallSensorLastReadTime = Time.realtimeSinceStartup;
 
-            speed = 0.006f / hallSensorTimeInterval;
+            speed = (0.036f / hallSensorTimeInterval) / 6f;
             
         }
         else
@@ -156,8 +157,12 @@ public class CharacterMovement : MonoBehaviour
             angleX = -angleX;
         }        
         
-        tcpServer.WriteDataToBleApp(angleX);
+        //tcpServer.WriteDataToBleApp(angleX);        
 
+        if (-45 <= angleX && angleX >= 45)
+        {
+            SceneManager.LoadScene("GameOverScreen");
+        }
     }
     
 }
