@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Threading;
 public class NameChooser : MonoBehaviour
 {
     public TMP_Text[] selectionLetters;
@@ -43,11 +44,12 @@ public class NameChooser : MonoBehaviour
             else
             {
                 currentLetterSelection++;
+                Thread.Sleep(100);
             }
             timeRemaining = 5;
 
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (customController.buttonTwoPressed == true)
         {
             if (currentLetterSelection==1)
             {
@@ -56,6 +58,7 @@ public class NameChooser : MonoBehaviour
             else
             {
                 currentLetterSelection--;
+                Thread.Sleep(100);
             }
             timeRemaining = 5;
             
