@@ -159,10 +159,16 @@ public class CharacterMovement : MonoBehaviour
         
         //tcpServer.WriteDataToBleApp(angleX);        
 
-        if (-45 <= angleX && angleX >= 45)
+        if (-45 <= angleX | angleX >= 45)
         {
-            SceneManager.LoadScene("GameOverScreen");
+            if (DataManager.instance.check_Can_StoreNewHighScore())
+            {
+                SceneManager.LoadScene("HighScore");
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOverScreen");
+            }
         }
-    }
-    
+    }    
 }
