@@ -8,6 +8,8 @@ public class TimerScript : MonoBehaviour
     public bool TimerOn = false;
 
     public Text TimerTxt;
+    public GameObject CountdownTxt;
+    Color32 color1 = new Color32(255, 168, 0, 255);
 
     void Start()
     {
@@ -38,6 +40,27 @@ public class TimerScript : MonoBehaviour
                     TimerOn = false;
                 }
             }
+
+        //  if (TimeLeft < 7.02 && TimeLeft > 7)
+        //  {
+        //      CountdownTxt.SetActive(false);
+        //  }
+
+            if (TimeLeft < 10.02 && TimeLeft > 10)
+            {
+        //      CountdownTxt.SetActive(true);
+                TimerTxt.color = Color.red;
+            }
+
+            if (TimeLeft < 30.02 && TimeLeft > 30)
+            {
+                TimerTxt.color = color1;
+            }
+
+            if (TimeLeft < 45.02 && TimeLeft > 45)
+            {
+                TimerTxt.color = Color.yellow;
+            }
         }
     }
 
@@ -49,6 +72,7 @@ public class TimerScript : MonoBehaviour
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
         TimerTxt.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
     }
 
 }
