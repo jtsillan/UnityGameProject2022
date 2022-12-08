@@ -840,7 +840,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222556574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9}
+  m_LocalPosition: {x: 0, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -849,7 +849,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -50.000015, y: 9}
+  m_AnchoredPosition: {x: -77.000015, y: 9}
   m_SizeDelta: {x: 444.24, y: 64.965}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &222556576
@@ -2909,8 +2909,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -123.2, y: 3.2869987}
-  m_SizeDelta: {x: 261.45, y: 174.351}
+  m_AnchoredPosition: {x: -123.2, y: 6.8190002}
+  m_SizeDelta: {x: 261.45, y: 127.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1724780524
 MonoBehaviour:
@@ -3343,6 +3343,7 @@ GameObject:
   - component: {fileID: 1871339916}
   - component: {fileID: 1871339918}
   - component: {fileID: 1871339917}
+  - component: {fileID: 1871339919}
   m_Layer: 5
   m_Name: HIghScorePanel
   m_TagString: Untagged
@@ -3359,7 +3360,7 @@ RectTransform:
   m_GameObject: {fileID: 1871339915}
   m_LocalRotation: {x: -0.04345342, y: 0.08707283, z: 0.0038016832, w: 0.9952465}
   m_LocalPosition: {x: 0, y: 0, z: -44.5}
-  m_LocalScale: {x: 0.46083, y: 0.46083, z: 0.46083}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.46083}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 222556575}
@@ -3369,8 +3370,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -5, y: 10, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -65.900024, y: 51.8}
-  m_SizeDelta: {x: 482.868, y: 466.321}
+  m_AnchoredPosition: {x: -82.20001, y: 40.698}
+  m_SizeDelta: {x: 482.868, y: 437.681}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1871339917
 MonoBehaviour:
@@ -3410,6 +3411,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871339915}
   m_CullTransparentMesh: 1
+--- !u!223 &1871339919
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871339915}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1881637181
 GameObject:
   m_ObjectHideFlags: 0
