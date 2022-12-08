@@ -147,7 +147,7 @@ public class CharacterMovement : MonoBehaviour
     private void GetPlayerAngle()
     {
         int angleX = (int)transform.eulerAngles.x;
-        
+        /*
         if(270 <= angleX && angleX < 360)
         {
             angleX = 360 - angleX;
@@ -157,10 +157,12 @@ public class CharacterMovement : MonoBehaviour
             angleX = -angleX;
         }        
         
+        Debug.Log(angleX);
         //tcpServer.WriteDataToBleApp(angleX);        
-
-        if (-45 <= angleX | angleX >= 45)
+        
+        if (-45 >= angleX || angleX >= 45)
         {
+            Debug.Log("AngleX: " + angleX + " tulos: " + (-45 <= angleX || angleX >= 45));
             if (DataManager.instance.check_Can_StoreNewHighScore())
             {
                 SceneManager.LoadScene("HighScore");
@@ -169,6 +171,8 @@ public class CharacterMovement : MonoBehaviour
             {
                 SceneManager.LoadScene("GameOverScreen");
             }
+        
         }
+        */
     }    
 }

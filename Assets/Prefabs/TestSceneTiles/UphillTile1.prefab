@@ -574,7 +574,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009639849, y: 0.002054672, z: 0.010133399}
+  m_Size: {x: 0.009639849, y: 0.009639849, z: 0.010133399}
   m_Center: {x: 6.9849193e-10, y: 0.0010272982, z: -2.3283064e-10}
 --- !u!114 &1487612782895329711
 MonoBehaviour:
@@ -846,6 +846,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6939372069137646916}
     m_Modifications:
+    - target: {fileID: 7007591236292485129, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
       propertyPath: m_Name
       value: Rock_01

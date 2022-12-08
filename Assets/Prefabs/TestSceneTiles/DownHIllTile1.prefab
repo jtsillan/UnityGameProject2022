@@ -212,7 +212,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6646223502820730637}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: dc00ad3dbf2a60041a24a16f8dd248e2, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -365,6 +365,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6646223502820730625}
     m_Modifications:
+    - target: {fileID: 7007591236292485129, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7405846476849542632, guid: c6308cb7062fac34e8e50600086b12a1, type: 3}
       propertyPath: m_Name
       value: Rock_01
@@ -595,7 +599,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009639849, y: 0.002054672, z: 0.010133399}
+  m_Size: {x: 0.009639849, y: 0.009639849, z: 0.010133399}
   m_Center: {x: -0.0000000011564992, y: 0.0010272978, z: -2.3283064e-10}
 --- !u!114 &8815273691593223446
 MonoBehaviour:

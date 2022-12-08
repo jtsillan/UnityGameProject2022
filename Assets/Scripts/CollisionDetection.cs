@@ -16,7 +16,8 @@ public class CollisionDetection : MonoBehaviour
     //Havaitsee t�rm�ykset esteiden kanssa
     void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log("Collision: " + collision.gameObject.name + " I am: " + gameObject.name);
+
         //Etsii tagill� gameobjectin
         if (collision.gameObject.tag == "Player")
         {
