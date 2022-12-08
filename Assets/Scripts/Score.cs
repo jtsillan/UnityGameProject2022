@@ -21,7 +21,6 @@ public class Score : MonoBehaviour
     {
         ScoreInt++;
         DataManager.instance.currentScore = ScoreInt;
-
     }
 
 
