@@ -32,7 +32,7 @@ public class GameOverScroller : MonoBehaviour
             //JOS ARROW OSOITTAA RESTART NAPPIA -->
             if (currentLetter == 0)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || customController.buttonOnePressed == true && customController.buttonTwoPressed == true)
+                if (Input.GetKeyDown(KeyCode.Space) || customController.hallValue == true)
                 {
                     SceneManager.LoadScene("StartScene");
                 }
@@ -42,7 +42,7 @@ public class GameOverScroller : MonoBehaviour
             //JOS ARROW OSOITTAA MAINMENU NAPPIA -->
             if (currentLetter == 1)
             {
-                if (Input.GetKeyDown(KeyCode.Space) || customController.buttonOnePressed == true && customController.buttonTwoPressed == true)
+                if (Input.GetKeyDown(KeyCode.Space) || customController.hallValue == true)
                 {
                     SceneManager.LoadScene("Menu");
                 }
@@ -56,7 +56,7 @@ public class GameOverScroller : MonoBehaviour
             currentLetter++;
             RestartArrow.SetActive(false);
             MainMenuArrow.SetActive(true);
-            Thread.Sleep(100);
+            Thread.Sleep(150);
         }
 
         //YLÖSPÄIN LIIKKUMINEN VALIKOSSA
@@ -66,7 +66,7 @@ public class GameOverScroller : MonoBehaviour
             currentLetter--;
             RestartArrow.SetActive(true);
             MainMenuArrow.SetActive(false);
-            Thread.Sleep(100);
+            Thread.Sleep(150);
         }
 
     }
