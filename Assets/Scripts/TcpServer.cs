@@ -106,9 +106,14 @@ public class TcpServer : MonoBehaviour
 	private void OnDestroy()
     {
 		run = false;
-		tcpListenerThread.Abort();
-		tcpListener.Stop();
-		connectedTcpClient.Close();
+
+		if (tcpListenerThread != null)
+		{
+			tcpListenerThread.Abort();
+			tcpListener.Stop();
+			connectedTcpClient.Close();
+		}
+		
 	}
 
     /// <summary>
