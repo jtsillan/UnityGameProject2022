@@ -29,7 +29,7 @@ public class Collectable : MonoBehaviour
         //Etsii tagillä pelaajan, kutsuu scoreplusone metodia ja tuhoaa collectable objektin kun pelaaja osuu
         if (collision.gameObject.tag == "Player")
         {
-            // source.PlayOneShot(clip);
+            source.PlayOneShot(clip);
             ScoreText.ScorePlusOne();
             Destroy(gameObject);
 
