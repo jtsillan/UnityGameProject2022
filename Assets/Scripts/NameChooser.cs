@@ -35,7 +35,7 @@ public class NameChooser : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
 
-        if (customController.buttonOnePressed == true)
+        if (customController.buttonTwoPressed == true)
         {
             if (currentLetterSelection ==26)
             {
@@ -44,12 +44,12 @@ public class NameChooser : MonoBehaviour
             else
             {
                 currentLetterSelection++;
-                Thread.Sleep(100);
+                Thread.Sleep(150);
             }
             timeRemaining = 5;
 
         }
-        if (customController.buttonTwoPressed == true)
+        if (customController.buttonOnePressed == true)
         {
             if (currentLetterSelection==1)
             {
@@ -58,12 +58,11 @@ public class NameChooser : MonoBehaviour
             else
             {
                 currentLetterSelection--;
-                Thread.Sleep(100);
+                Thread.Sleep(150);
             }
             timeRemaining = 5;
-            
-
         }
+
         if (timeRemaining <= 0 || Input.GetKeyDown(KeyCode.RightArrow))
         {
             

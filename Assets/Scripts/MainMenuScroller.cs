@@ -68,6 +68,7 @@ public class MainMenuScroller : MonoBehaviour
                     OptionsBackButton.SetActive(false);
                     OptionsMenu.SetActive(false);
                     currentLetter -= 6;
+                    Thread.Sleep(150);
                 }
                 
             }
@@ -80,6 +81,7 @@ public class MainMenuScroller : MonoBehaviour
                     OptionsVolumeButton.SetActive(true);
                     OptionsBackButton.SetActive(false);
                     Debug.Log(currentLetter);
+                    Thread.Sleep(150);
                 }
 
                 if (Input.GetKeyDown(KeyCode.DownArrow) || customController.buttonTwoPressed == true)
@@ -87,6 +89,7 @@ public class MainMenuScroller : MonoBehaviour
                     OptionsVolumeButton.SetActive(false);
                     OptionsBackButton.SetActive(true);
                     Debug.Log(currentLetter);
+                    Thread.Sleep(150);
                 }
             }
 
@@ -99,6 +102,7 @@ public class MainMenuScroller : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) || customController.buttonOnePressed == true && customController.buttonTwoPressed == true)
                 {
                     OptionsMenu.SetActive(true);
+                    Thread.Sleep(150);
                     if (GameObject.Find("Options") == true)
                     {
                         currentLetter += 4;
@@ -117,6 +121,7 @@ public class MainMenuScroller : MonoBehaviour
                     ArrowPlay.SetActive(true);
                     ArrowTutorial.SetActive(false);
                     Debug.Log(currentLetter);
+                    Thread.Sleep(100);
                 }
             }
 
@@ -129,6 +134,7 @@ public class MainMenuScroller : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) || customController.buttonOnePressed == true && customController.buttonTwoPressed == true)
                 {
                     TutorialMenu.SetActive(true);
+                    Thread.Sleep(150);
                     if (GameObject.Find("Tutorial") == true)
                     {
                         currentLetter += 2;
@@ -159,7 +165,7 @@ public class MainMenuScroller : MonoBehaviour
         {
             currentLetterSelection++;
             currentLetter++;
-            Thread.Sleep(100);
+            Thread.Sleep(150);
         }
 
         //YLÖSPÄIN LIIKKUMINEN VALIKOSSA
@@ -167,7 +173,7 @@ public class MainMenuScroller : MonoBehaviour
         {
             currentLetterSelection--;
             currentLetter--;
-            Thread.Sleep(100);
+            Thread.Sleep(150);
         }
 
     }
