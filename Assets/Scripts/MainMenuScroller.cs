@@ -26,7 +26,6 @@ public class MainMenuScroller : MonoBehaviour
     {
         currentLetter = 1;
         currentLetterSelection = 1;
-        selectionLetters[currentLetterSelection].color = Color.red;
         GameObject input = GameObject.Find("ButtonManager");
         customController = input.GetComponent<CustomController>();
         ArrowPlay.SetActive(true);
@@ -138,7 +137,7 @@ public class MainMenuScroller : MonoBehaviour
                 }
             }
 
-            // KUN ARROW OSOITTAA VOLUMEA -->
+            // KUN ARROW OSOITTAA VOLUMEA --> ei toimi pyörällä
             if (currentLetter == 6)
             {
                 if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -156,7 +155,7 @@ public class MainMenuScroller : MonoBehaviour
 
 
         //ALASPÄIN LIIKKUMINEN VALIKOSSA
-        if (Input.GetKeyDown(KeyCode.DownArrow) && currentLetter != 7 && currentLetter != 5)
+        if (Input.GetKeyDown(KeyCode.DownArrow) || customController.buttonTwoPressed == true && currentLetter != 7 && currentLetter != 5)
         {
             currentLetterSelection++;
             currentLetter++;
@@ -164,7 +163,7 @@ public class MainMenuScroller : MonoBehaviour
         }
 
         //YLÖSPÄIN LIIKKUMINEN VALIKOSSA
-        if (Input.GetKeyDown(KeyCode.UpArrow) && currentLetter != 6 && currentLetter != 5)
+        if (Input.GetKeyDown(KeyCode.UpArrow) || customController.buttonOnePressed == true && currentLetter != 6 && currentLetter != 5)
         {
             currentLetterSelection--;
             currentLetter--;
