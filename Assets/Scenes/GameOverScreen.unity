@@ -588,9 +588,12 @@ MonoBehaviour:
   selectionLetters:
   - {fileID: 1507099827}
   - {fileID: 2014291661}
+  TimerTxt: {fileID: 0}
   currentLetter: 0
   RestartArrow: {fileID: 2076063029}
   MainMenuArrow: {fileID: 1176445175}
+  TimerOn: 0
+  targetTime: 2
   customController: {fileID: 0}
 --- !u!1 &1136572456
 GameObject:
