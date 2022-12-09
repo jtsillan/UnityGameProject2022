@@ -813,6 +813,7 @@ MonoBehaviour:
   ArrowOptions: {fileID: 1821726810}
   ArrowTutorial: {fileID: 2075276981}
   BackArrowTutorial: {fileID: 756355411}
+  targetTime: 2
   customController: {fileID: 0}
 --- !u!1 &222556574
 GameObject:
@@ -3061,7 +3062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1821726811
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3857,7 +3858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2075276982
 RectTransform:
   m_ObjectHideFlags: 0

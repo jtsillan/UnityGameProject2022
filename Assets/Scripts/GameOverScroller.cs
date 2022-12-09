@@ -8,12 +8,10 @@ using UnityEngine.UI;
 public class GameOverScroller : MonoBehaviour
 {
     public TMP_Text[] selectionLetters;
-    public TMP_Text TimerTxt;
     public int currentLetter;
     private int currentLetterSelection = 0;
     public GameObject RestartArrow;
     public GameObject MainMenuArrow;
-    public bool TimerOn = false;
     public float targetTime = 2.0f;
     [SerializeField] CustomController customController;
     private string[] letters = {"Restart", "MainMenu"};

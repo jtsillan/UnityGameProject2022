@@ -19,6 +19,7 @@ public class MainMenuScroller : MonoBehaviour
     public GameObject ArrowOptions;
     public GameObject ArrowTutorial;
     public GameObject BackArrowTutorial;
+    public float targetTime = 2.0f;
     [SerializeField] CustomController customController;
     private string[] letters = {"_","Play", "Options", "Tutorial","_","Back1","Slider","SliderBack"};
     // Start is called before the first frame update
@@ -35,6 +36,15 @@ public class MainMenuScroller : MonoBehaviour
 
     private void Update()
     {   
+
+        targetTime -= Time.deltaTime;
+        if (targetTime <= 0.0f)
+        {
+        timerEnded();
+        }
+
+        void timerEnded()
+        {
             //JOS VALINTA MENEE TUTORIAALISTA ALAS, SE MENEE PLAY NAPPIIN
             if (currentLetter == 4)
             {
@@ -176,6 +186,6 @@ public class MainMenuScroller : MonoBehaviour
             currentLetter--;
             Thread.Sleep(150);
         }
-
+        }
     }
 }
